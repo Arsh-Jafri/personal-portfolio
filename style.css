@@ -1,0 +1,616 @@
+/* IMPORT GOOGLE FONTS */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+/* GENERAL */
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  background-color: #1b2026; /* Main background color */
+  color: #d3d3d3; /* Grayish white for body text */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+p {
+  color: #d3d3d3; /* Grayish white for paragraph text */
+}
+
+/* TRANSITION */
+
+a,
+.btn {
+  transition: all 300ms ease;
+}
+
+/* FONT CUSTOMIZATION */
+/* Apply DM Sans to all body text */
+.dm-sans-body {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* Normal weight for body text */
+  font-style: normal;
+}
+
+/* Apply DM Sans with higher weight to all headings and titles */
+.dm-sans-heading {
+  font-family: "DM Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700; /* Heavier weight for headings */
+  font-style: normal;
+  color: #ffffff; /* Brighter white for headings */
+}
+
+/* DESKTOP NAV */
+
+nav,
+.nav-links {
+  display: flex;
+}
+
+/* Initial Header State */
+nav {
+    position: relative; /* Not sticky initially */
+    background: none; /* No background initially */
+    box-shadow: none; /* No shadow initially */
+    padding: 1rem 2rem;
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+    transition: all 0.3s ease; /* Smooth transition for background and shadow */
+}
+
+/* Sticky and Glassmorphic State */
+nav.sticky {
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.1); /* Slightly translucent white */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+.nav-links {
+  gap: 2rem;
+  list-style: none;
+  font-size: 1.5rem;
+}
+
+a {
+  color: #ffffff; /* Brighter white for links */
+  text-decoration: none;
+  text-decoration-color: #333742; /* Accent color for underline */
+}
+
+a:hover {
+  color: #d3d3d3; /* Grayish white on hover */
+  text-decoration: underline;
+  text-underline-offset: 1rem;
+  text-decoration-color: #1671ff; /* Button color for hover underline */
+}
+
+.logo {
+  font-size: 2rem;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700; /* Heavier weight for logo */
+  color: #ffffff; /* Brighter white for logo */
+}
+
+.logo:hover {
+  cursor: default;
+}
+
+/* HAMBURGER MENU */
+
+#hamburger-nav {
+  display: none;
+}
+
+.hamburger-menu {
+  position: relative;
+  display: inline-block;
+}
+
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 24px;
+  width: 30px;
+  cursor: pointer;
+}
+
+.hamburger-icon span {
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff; /* Brighter white for hamburger icon */
+  transition: all 0.3 ease-in-out;
+}
+
+/* Updated Hamburger Menu Styles */
+
+/* Hamburger Menu Container */
+.menu-links {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: fit-content;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+
+  /* Glassmorphic Styling */
+  background: rgba(255, 255, 255, 0.1); /* Slightly translucent white */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Frosted glass effect for Safari */
+  border-radius: 1rem; /* Rounded corners */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border for enhancement */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Subtle shadow for depth */
+}
+
+/* Menu Links */
+.menu-links a {
+  display: block;
+  padding: 10px 20px;
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ffffff; /* Brighter white for menu links */
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Open Menu State */
+.menu-links.open {
+  max-height: 300px; /* You can adjust this height */
+  padding: 10px 0; /* Add padding when the menu is open */
+}
+
+
+.menu-links li {
+  list-style: none;
+}
+
+.menu-links.open {
+  max-height: 300px;
+}
+
+.hamburger-icon.open span:first-child {
+  transform: rotate(45deg) translate(10px, 5px);
+}
+
+.hamburger-icon.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-icon.open span:last-child {
+  transform: rotate(-45deg) translate(10px, -5px);
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+.hamburger-icon span:first-child {
+  opacity: 1;
+}
+
+.hamburger-icon span:first-child {
+  transform: none;
+}
+
+/* SECTIONS */
+
+section {
+  padding-top: 4vh;
+  height: 96vh;
+  margin: 0 10rem;
+  box-sizing: border-box;
+  min-height: fit-content;
+  background-color: #1b2026; /* Main background color */
+}
+
+.section-container {
+  display: flex;
+}
+
+/* PROFILE SECTION */
+
+#profile {
+  display: flex;
+  justify-content: center;
+  gap: 5rem;
+  height: 80vh;
+}
+
+.section__pic-container {
+  display: flex;
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+.section__text {
+  align-self: center;
+  text-align: center;
+}
+
+.section__text p {
+  font-weight: 600;
+}
+
+.section__text__p1 {
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400; /* Normal weight for sub-heading */
+  color: #d3d3d3; /* Grayish white for sub-heading */
+}
+
+.section__text__p2 {
+  font-size: 1.75rem;
+  margin-bottom: 0;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700; /* Heavier weight for title */
+  color: #ffffff; /* Brighter white for title */
+}
+
+.section__uni__name {
+    margin-bottom: 1rem;
+    font-weight: 300;
+}
+
+.title {
+  font-size: 3rem;
+  text-align: center;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700; /* Heavier weight for main title */
+  color: #ffffff; /* Brighter white for main title */
+}
+
+#socials-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 1rem;
+}
+
+/* ICONS */
+
+/* ICONS */
+.icon {
+    cursor: pointer;
+    height: 2rem;
+    filter: invert(100%) brightness(200%);
+  }
+  
+
+/* BUTTONS */
+
+.btn-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.btn {
+  font-weight: 600;
+  transition: all 300ms ease;
+  padding: 1rem;
+  width: 8rem;
+  border-radius: 2rem;
+  background-color: #1671ff; /* Button color */
+  color: #ffffff; /* Button text color */
+  border: none;
+}
+
+.btn-color-1:hover,
+.btn-color-2:hover {
+  cursor: pointer;
+  background-color: #0056b3; /* Darker shade for button hover */
+}
+
+/* ABOUT SECTION */
+
+#about {
+  position: relative;
+}
+
+.about-containers {
+  gap: 2rem;
+  margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+.about-details-container {
+  justify-content: center;
+  flex-direction: column;
+}
+
+.about-containers,
+.about-details-container {
+  display: flex;
+}
+
+.about-pic {
+  border-radius: 2rem;
+}
+
+.arrow {
+  position: absolute;
+  right: -5rem;
+  bottom: 2.5rem;
+}
+
+/* Glassmorphic Design for Project Containers */
+#projects .details-container {
+  padding: 1.5rem;
+  flex: 1;
+  background: rgba(255, 255, 255, 0.1); /* Slightly translucent white */
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Light border to enhance the glass effect */
+  backdrop-filter: blur(10px); /* Frosted glass effect */
+  -webkit-backdrop-filter: blur(10px); /* Frosted glass effect for Safari */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Subtle shadow for depth */
+  text-align: center;
+  color: #d3d3d3; /* Text color */
+}
+
+#projects .details-container .project-description {
+  color: #d3d3d3; /* Maintain consistent text color */
+}
+
+#projects .details-container .project-title {
+  color: #ffffff; /* Brighter white for project title */
+}
+
+#projects .details-container .project-btn {
+  color: #ffffff; /* White text for buttons */
+  border-color: rgba(255, 255, 255, 0.2); /* Matching border for buttons */
+}
+
+#projects .details-container .project-img {
+  border-radius: 1rem;
+  width: 100%;
+  height: auto;
+  opacity: 0.9; /* Slight transparency for images */
+}
+
+
+/* Glassmorphic Design for Education and Experience boxes */
+.details-container {
+    padding: 1.5rem;
+    flex: 1;
+    background: rgba(255, 255, 255, 0.1); /* Slightly translucent white */
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border to enhance the glass effect */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Frosted glass effect for Safari */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Subtle shadow for depth */
+    text-align: center;
+    color: #d3d3d3; /* Keep the text color as is */
+  }
+
+.section-container {
+  gap: 4rem;
+  height: 80%;
+}
+
+.section__pic-container {
+  height: 400px;
+  width: 400px;
+  margin: auto 0;
+}
+
+/* EXPERIENCE SECTION */
+
+#experience {
+  position: relative;
+  margin-bottom: -2rem;
+}
+
+.experience-sub-title {
+  color: #ffffff; /* Brighter white for sub-title */
+  font-weight: 700; /* Heavier weight for sub-title */
+  font-size: 1.75rem;
+  margin-bottom: 2rem;
+  font-family: "DM Sans", sans-serif;
+}
+
+.experience-details-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.article-container {
+  display: flex;
+  text-align: initial;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 2.5rem;
+  justify-content: space-around;
+}
+
+article {
+  display: flex;
+  width: 10rem;
+  justify-content: space-around;
+  gap: 0.5rem;
+  color: #d3d3d3; /* Grayish white for article text */
+}
+
+article .icon {
+  cursor: default;
+}
+
+/* PROJECTS SECTION */
+
+#projects {
+  position: relative;
+}
+
+.color-container {
+  border-color: #333742; /* Accent color for project container border */
+  background: #333742; /* Accent background color for project container */
+}
+
+.project-img {
+  border-radius: 2rem;
+  width: 90%;
+  height: 90%;
+}
+
+.project-title {
+  margin: 1rem;
+  color: #ffffff; /* Brighter white for project title */
+  font-family: "DM Sans", sans-serif;
+  font-weight: 700; /* Heavier weight for project title */
+}
+
+.project-btn {
+  color: #ffffff; /* Brighter white for project button text */
+  border-color: #1671ff; /* Button color for border */
+}
+
+.project-description {
+  color: #d3d3d3; /* Grayish white for list text */
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400;
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+  text-align: left;
+  margin-bottom: 1.5rem;
+}
+
+.project-description li {
+  margin-bottom: 0.5rem;
+}
+
+/* CONTACT */
+
+#contact {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 70vh;
+}
+
+/* Glassmorphic Design for Contact Info Container */
+.contact-info-upper-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.2); /* Light border to enhance the glass effect */
+    background: rgba(255, 255, 255, 0.1); /* Slightly translucent white */
+    backdrop-filter: blur(10px); /* Frosted glass effect */
+    -webkit-backdrop-filter: blur(10px); /* Frosted glass effect for Safari */
+    margin: 2rem auto;
+    padding: 0.5rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); /* Subtle shadow for depth */
+  }
+  
+
+.contact-info-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 1rem;
+  color: #d3d3d3; /* Grayish white for contact info */
+}
+
+.contact-info-container p {
+  font-size: larger;
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400; /* Normal weight for contact text */
+}
+
+.contact-icon {
+  cursor: default;
+}
+
+.email-icon {
+  height: 2.5rem;
+}
+
+/* FOOTER SECTION */
+
+footer {
+  height: 26vh;
+  margin: 0 1rem;
+  background-color: transparent; /* Main background color */
+}
+
+footer p {
+  text-align: center;
+  color: #d3d3d3; /* Grayish white for footer text */
+  font-family: "DM Sans", sans-serif;
+  font-weight: 400; /* Normal weight for footer text */
+}
+/* REMOVE BACKGROUND COLOR FROM SECTIONS */
+section {
+    padding-top: 4vh;
+    height: 96vh;
+    margin: 0 10rem;
+    box-sizing: border-box;
+    min-height: fit-content;
+    background-color: transparent; /* Remove the background color */
+    position: relative; /* Ensure circles are positioned relative to the section */
+    overflow: visible; /* Ensure circles aren't clipped */
+  }
+
+  /* CONSOLIDATED BACKGROUND SHAPES */
+section::before {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  opacity: 0.5;
+  z-index: -1;
+  background-size: cover;
+  filter: blur(20px);
+}
+
+#profile::before {
+  background: url('./assets/blob4.svg');
+  top: -100px;
+  left: -100px;
+  transform: scale(2.5)
+}
+
+#about::before {
+    background: url('./assets/blob5.svg');
+    top: 50px;
+    right: -100px;
+    transform: scale(2);
+  }
+
+  #experience::before {
+    background: url('./assets/blob4.svg');
+    bottom: 300px;  /* Move the blob further up by increasing the negative value */
+    left: 40%;       /* Move the blob to the left by decreasing the percentage */
+    transform: translateX(-50%) scale(2.5); /* Keep the blob centered horizontally and scaled */
+  }
+  
+  #projects::before {
+    background: url('./assets/blob3.svg');
+    top: 200px;
+  left: -100px;
+  transform: scale(2.5);
+}
+
+
+
+#contact::before {
+    background: url('./assets/blob1.svg');
+    bottom: 100px;
+  right: -150px;
+  transform: scale(2);
+}
