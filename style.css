@@ -325,7 +325,7 @@ section {
 .about-containers {
   gap: 2rem;
   margin-bottom: 2rem;
-  margin-top: 2rem;
+  margin-top: 5rem;
 }
 
 .about-details-container {
@@ -413,6 +413,7 @@ section {
 #experience {
   position: relative;
   margin-bottom: -2rem;
+  margin-top: 10rem;
 }
 
 .experience-sub-title {
@@ -425,30 +426,52 @@ section {
 
 .experience-details-container {
   display: flex;
+  margin-top: -2rem;
   justify-content: center;
   flex-direction: column;
 }
 
 .article-container {
   display: flex;
-  text-align: initial;
   flex-wrap: wrap;
-  flex-direction: row;
   gap: 2.5rem;
   justify-content: space-around;
+  align-items: flex-start;
 }
 
 article {
   display: flex;
-  width: 10rem;
-  justify-content: space-around;
+  flex-direction: row;
   gap: 0.5rem;
-  color: #d3d3d3; /* Grayish white for article text */
+  color: #d3d3d3;
+  align-items: center;
+  width: 10rem; /* Adjust as necessary for alignment */
 }
 
 article .icon {
-  cursor: default;
+  flex-shrink: 0;
 }
+
+article div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  flex: 1; /* Allows the text to take up remaining space */
+  min-width: 0; /* Prevents overflow issues */
+}
+
+article h3, article p {
+  margin: 0;
+  font-size: 1rem;
+  white-space: nowrap; /* Prevents text from wrapping */
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ellipsis (...) for overflow text */
+}
+
+.article-container {
+  max-width: 100%; /* Ensure that the container doesn't overflow */
+}
+
 
 /* PROJECTS SECTION */
 
