@@ -16,9 +16,6 @@
     #desktop-nav {
       display: none;
     }
-    #hamburger-nav {
-      display: flex;
-    }
     #experience,
     .experience-details-container {
       margin-top: 2rem;
@@ -74,246 +71,223 @@
   }
   
   @media screen and (max-width: 600px) {
-    /* Prevent horizontal scrolling */
+    /* Base setup */
     html, body {
-      max-width: 100%;
+      width: 100vw;
       overflow-x: hidden;
+      margin: 0;
+      padding: 0;
     }
 
-    /* Reset section margins and widths */
-    section {
+    /* Reset all container margins */
+    section, 
+    .section-container,
+    .experience-details-container,
+    .about-details-container {
+      width: 100%;
       margin: 0;
       padding: 2rem 1rem;
-      width: 100%;
-      max-width: 100vw;
       box-sizing: border-box;
       overflow: hidden;
     }
 
-    /* Fix projects section scroll */
-    #projects .about-containers {
+    /* Profile section adjustments */
+    #profile {
+      padding: 2rem 1rem;
+      width: 100%;
       margin: 0;
-      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    /* Container adjustments */
+    .section__text,
+    .about-containers,
+    .experience-details-container,
+    .contact-info-upper-container {
       width: 100%;
       max-width: 100%;
-      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Project containers */
+    #projects .about-containers {
+      width: 100%;
+      margin: 0;
+      padding: 0;
     }
 
     #projects .details-container {
+      width: calc(100% - 1rem);
+      margin: 0 0.5rem;
+      box-sizing: border-box;
+    }
+
+    /* Contact section */
+    #contact {
+      width: 100%;
+      padding: 2rem 1rem;
       margin: 0;
-      width: 100%;
-      min-width: 100%;
-      box-sizing: border-box;
     }
 
-    /* Fix nav for mobile */
-    #hamburger-nav {
-      width: 100%;
-      max-width: 100vw;
-      padding: 1rem;
-      box-sizing: border-box;
-    }
-
-    .menu-links {
-      width: 100vw;
-      left: 0;
-      right: 0;
-    }
-
-    /* Fix container widths */
-    .experience-details-container,
-    .about-details-container,
-    .section-container {
-      width: 100%;
-      max-width: 100%;
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    /* Ensure images don't cause overflow */
-    img {
-      max-width: 100%;
-      height: auto;
-    }
-
-    .project-img {
-      width: 85%;
-      margin: 0 auto;
-    }
-
-    /* Fix any potential text overflow */
-    .text-container,
-    .project-description {
-      width: 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      word-wrap: break-word;
-    }
-
-    #contact,
-    footer {
-      height: 40vh;
-    }
-    #profile {
-      height: 83vh;
-      margin-bottom: 0;
-      padding-top: 4rem;
-    }
-    article {
-      font-size: 1rem;
-    }
-    footer nav {
-      height: fit-content;
-      margin-bottom: 2rem;
-    }
-    .about-containers,
-    .contact-info-upper-container,
-    .btn-container {
-      flex-wrap: wrap;
-    }
-    .contact-info-container {
-      margin: 0.5rem;
-      width: 100%;
-      justify-content: center;
-    }
-    .contact-info-container p {
-      font-size: 1rem;
-    }
-    .experience-sub-title {
-      font-size: 1.25rem;
-    }
-    .logo {
-      font-size: 1.5rem;
-    }
-    .nav-links {
-      flex-direction: column;
-      gap: 0.5rem;
-      text-align: center;
-    }
-    .section__pic-container {
-      max-width: 300px;
-      margin: 1.5rem auto;
-    }
-    .section__text__p2 {
-      font-size: 1.25rem;
-    }
-    .title {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-    }
-    .text-container {
-      text-align: justify;
-      font-size: 0.9rem;
-    }
-    .btn {
-      padding: 0.8rem;
-      width: 7rem;
-    }
-    .about-containers {
-      gap: 1rem;
-    }
-    .details-container {
-      padding: 1rem;
-    }
-    .article-container {
-      gap: 1.5rem;
-    }
-    .menu-links {
-      top: 100%;
-      right: 0;
-      width: 100%;
-      padding: 0.5rem 0;
-    }
-    .menu-links a {
-      padding: 0.8rem;
-      font-size: 1.2rem;
-    }
-    .project-img {
-      width: 85%;
-      margin: 0 auto 1rem;
-    }
-    .project-description {
-      font-size: 0.9rem;
+    .contact-info-upper-container {
+      width: calc(100% - 2rem);
       margin: 1rem;
     }
+
+    /* Footer adjustments */
     footer {
-      padding: 1rem 0;
+      width: 100%;
+      margin: 0;
+      padding: 2rem 1rem;
+      box-sizing: border-box;
     }
-    footer .nav-links {
-      margin-bottom: 1rem;
-    }
-    footer p {
-      font-size: 0.8rem;
-    }
-    .icon {
-      height: 1.5rem;
-      width: auto;
-    }
-    .email-icon {
-      height: 2rem;
-    }
-    #socials-container {
-      gap: 1rem;
-      margin: 1rem 0;
-    }
-    #socials-container .icon {
-      height: 2rem;
-      width: auto;
-    }
-    .about-pic {
-      max-width: 100%;
-      height: auto;
-      border-radius: 1.5rem;
-    }
-    .contact-icon {
-      height: 2rem;
-      width: auto;
-      margin-right: 0.5rem;
-    }
-    .article-container .icon {
-      height: 1.5rem;
-      min-width: 1.5rem;
-    }
-    #projects .about-containers {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scroll-behavior: smooth;
-      -webkit-overflow-scrolling: touch;
-      margin: 0 -1rem;
-      padding: 0 1rem;
-      gap: 0;
-    }
-    #projects .details-container {
-      flex: 0 0 100%;
-      scroll-snap-align: center;
-      margin: 0 0.5rem;
-      min-width: calc(100% - 2rem);
-    }
-    #projects .about-containers::-webkit-scrollbar {
+
+    /* Navigation */
+    #desktop-nav {
       display: none;
     }
-    #projects .about-containers {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
+
+    /* Section spacing and layout */
+    section {
+      width: 100%;
+      padding: 3rem 1.5rem;
+      margin: 0;
+      box-sizing: border-box;
+      min-height: auto;
     }
-    .scroll-indicator {
+
+    /* Profile image */
+    .section__pic-container {
+      width: 300px;
+      height: 300px;
+      margin: 0 auto 1.5rem;
+      border-radius: 50%;
+      overflow: hidden;
+    }
+
+    .section__pic-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* Text styling */
+    .section__text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .title {
+      font-size: 2.5rem;
+      margin: 0;
+      line-height: 1.2;
+      margin-bottom: 0.3rem;
+    }
+
+    .section__text__p2 {
+      font-size: 1.2rem;
+      margin: 0;
+    }
+
+    .section__uni__name {
+      font-size: 1rem;
+      opacity: 0.8;
+      margin: 0;
+    }
+
+    /* Buttons adjustments */
+    .btn-container {
+      display: flex;
+      gap: 0.8rem;
+      margin: 1.5rem 0;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.9rem;
+      min-width: 120px;
+      border-radius: 25px;
+    }
+
+    /* Social icons adjustments */
+    #socials-container {
       display: flex;
       justify-content: center;
-      gap: 0.5rem;
+      gap: 1.5rem;
       margin-top: 1rem;
     }
-    .scroll-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.3);
-      cursor: pointer;
+
+    #socials-container .icon {
+      width: 2rem;
+      height: 2rem;
+      transition: transform 0.3s ease;
     }
-    .scroll-dot.active {
-      background: #ffffff;
+
+    #socials-container .icon:hover {
+      transform: scale(1.1);
+    }
+
+    .project-img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1.5rem;
+    }
+
+    .project-title {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .project-description {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0 0 1.5rem 0;
+    }
+
+    .project-description li {
+      margin-bottom: 0.8rem;
+    }
+
+    /* Scroll indicators */
+    .scroll-indicator {
+      margin-top: 2rem;
+    }
+
+    .scroll-dot {
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    /* Footer */
+    footer .nav-links {
+      display: none;
+    }
+
+    footer p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    .typing-container {
+      margin: 0.2rem 0;
+    }
+
+    .typing-text, .typing-cursor {
+      font-size: 1.8rem;
+    }
+
+    .section__text__p2 {
+      font-size: 1.2rem;
     }
   }
   
@@ -328,38 +302,38 @@
   
   @media screen and (max-width: 400px) {
     section {
-      padding: 2rem 0.8rem;
+      padding: 2rem 1rem;
     }
-    .section__pic-container {
-      max-width: 250px;
-    }
-    .btn-container {
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-    .btn {
-      width: 100%;
-      max-width: 200px;
-    }
-    .contact-info-container p {
-      font-size: 0.9rem;
-    }
+
     .title {
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
-    .icon {
-      height: 1.3rem;
+
+    .btn {
+      padding: 0.7rem 1.2rem;
+      font-size: 0.85rem;
+      min-width: 110px;
     }
+
+    .section__pic-container {
+      width: 250px;
+      height: 250px;
+    }
+
+    #socials-container {
+      gap: 1.2rem;
+    }
+
     #socials-container .icon {
+      width: 1.8rem;
       height: 1.8rem;
     }
-    .project-img {
-      width: 80%;
+
+    .typing-text, .typing-cursor {
+      font-size: 1.6rem;
     }
-    .contact-icon {
-      height: 1.8rem;
-    }
-    .email-icon {
-      height: 1.8rem;
+
+    .section__text__p2 {
+      font-size: 1.1rem;
     }
   }

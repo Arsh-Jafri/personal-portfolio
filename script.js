@@ -57,3 +57,51 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const roles = [
+    "Software Developer",
+    "UI/UX Designer",
+    "Entrepreneur",
+    "Problem Solver"
+  ];
+  
+  const typingText = document.querySelector('.typing-text');
+  let roleIndex = 0;
+  let charIndex = roles[0].length;
+  let isDeleting = true;
+  let typingDelay = 70;  // Faster typing (was 100)
+  let erasingDelay = 30; // Faster erasing (was 50)
+  let newTextDelay = 800; // Shorter pause between words (was 1000)
+
+  // Immediately set the first role
+  typingText.textContent = roles[0];
+
+  function type() {
+    const currentRole = roles[roleIndex];
+    
+    if (isDeleting) {
+      typingText.textContent = currentRole.substring(0, charIndex - 1);
+      charIndex--;
+      typingDelay = erasingDelay;
+    } else {
+      typingText.textContent = currentRole.substring(0, charIndex + 1);
+      charIndex++;
+      typingDelay = 70;
+    }
+
+    if (!isDeleting && charIndex === currentRole.length) {
+      isDeleting = true;
+      typingDelay = newTextDelay;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      typingDelay = 200; // Reduced pause before typing next word (was 500)
+    }
+
+    setTimeout(type, typingDelay);
+  }
+
+  // Start the animation sooner
+  setTimeout(type, 300); // Even quicker start (was 500)
+});

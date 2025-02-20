@@ -210,17 +210,26 @@ section {
 
 #profile {
   display: flex;
-  justify-content: center;
-  gap: 5rem;
-  min-height: 90vh; /* Slightly shorter than other sections */
-  padding-top: 6rem; /* Extra padding for first section */
+  justify-content: space-between; /* Changed from center to space-between */
+  gap: 5rem; /* Increased from 3rem for more space between image and text */
+  min-height: 90vh;
+  padding-top: 6rem;
+  padding-right: 8rem; /* Add padding to push text more to the right */
 }
 
 .section__pic-container {
   display: flex;
-  height: 400px;
-  width: 400px;
+  height: 450px; /* Increased from 400px */
+  width: 450px; /* Increased from 400px */
   margin: auto 0;
+}
+
+/* Ensure the image fills the container properly */
+.section__pic-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
 .section__text {
@@ -241,11 +250,9 @@ section {
 }
 
 .section__text__p2 {
-  font-size: 1.75rem;
-  margin-bottom: 0;
-  font-family: "DM Sans", sans-serif;
-  font-weight: 700; /* Heavier weight for title */
-  color: #ffffff; /* Brighter white for title */
+  font-size: 1.4rem;
+  margin: 0.5rem 0;
+  color: #d3d3d3;
 }
 
 .section__uni__name {
@@ -257,9 +264,9 @@ section {
   font-size: 3rem;
   text-align: center;
   font-family: "DM Sans", sans-serif;
-  font-weight: 700; /* Heavier weight for main title */
-  color: #ffffff; /* Brighter white for main title */
-  margin-bottom: 3rem; /* Consistent spacing below titles */
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem; /* Increased from 0.5rem for desktop only */
 }
 
 #socials-container {
@@ -616,4 +623,45 @@ section::before {
     bottom: 100px;
   right: -150px;
   transform: scale(2);
+}
+
+/* Add these styles */
+.typing-container {
+  min-height: 2em; /* Reduced from 2.5em */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.3rem 0; /* Reduced from 0.8rem */
+}
+
+.typing-text {
+  font-size: 2.2rem;
+  color: #ffffff; /* Changed from blue to white for better readability */
+  font-weight: 600;
+}
+
+.typing-cursor {
+  font-size: 2.2rem;
+  color: #ffffff;
+  animation: blink 0.7s infinite; /* Made cursor blink faster */
+  margin-left: 2px;
+  font-weight: 600;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Keep the mobile styles in mediaqueries.css unchanged */
+@media screen and (max-width: 600px) {
+  #profile {
+    padding: 2rem 1rem;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .title {
+    margin-bottom: 0.3rem; /* Keep the smaller margin for mobile */
+  }
 }
