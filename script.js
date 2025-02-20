@@ -30,3 +30,30 @@ document.querySelectorAll('.menu-links a').forEach(link => {
         scrollToSection(event, this.getAttribute('href'));
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.innerWidth <= 600) {
+    const projectsContainer = document.querySelector('#projects .about-containers');
+    const dots = document.querySelectorAll('.scroll-dot');
+    
+    if (projectsContainer && dots.length) {
+      // Update dots on scroll
+      projectsContainer.addEventListener('scroll', function() {
+        const index = Math.round(this.scrollLeft / this.offsetWidth);
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('active', i === index);
+        });
+      });
+
+      // Scroll to project when dot is clicked
+      dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+          projectsContainer.scrollTo({
+            left: index * projectsContainer.offsetWidth,
+            behavior: 'smooth'
+          });
+        });
+      });
+    }
+  }
+});
