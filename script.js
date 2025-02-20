@@ -37,21 +37,45 @@ document.addEventListener('DOMContentLoaded', function() {
     const dots = document.querySelectorAll('.scroll-dot');
     
     if (projectsContainer && dots.length) {
-      // Update dots on scroll
+      // Update dots on scroll with throttling
+      let ticking = false;
       projectsContainer.addEventListener('scroll', function() {
-        const index = Math.round(this.scrollLeft / this.offsetWidth);
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('active', i === index);
-        });
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            const slideWidth = projectsContainer.offsetWidth;
+            const scrollPosition = projectsContainer.scrollLeft;
+            const index = Math.round(scrollPosition / slideWidth);
+            
+            dots.forEach((dot, i) => {
+              dot.classList.toggle('active', i === index);
+            });
+            
+            ticking = false;
+          });
+          ticking = true;
+        }
       });
 
       // Scroll to project when dot is clicked
       dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
+          const slideWidth = projectsContainer.offsetWidth;
           projectsContainer.scrollTo({
-            left: index * projectsContainer.offsetWidth,
+            left: index * slideWidth,
             behavior: 'smooth'
           });
+        });
+      });
+
+      // Add scroll event listener for snap points
+      projectsContainer.addEventListener('scrollend', function() {
+        const slideWidth = projectsContainer.offsetWidth;
+        const scrollPosition = projectsContainer.scrollLeft;
+        const index = Math.round(scrollPosition / slideWidth);
+        
+        projectsContainer.scrollTo({
+          left: index * slideWidth,
+          behavior: 'smooth'
         });
       });
     }
@@ -109,25 +133,70 @@ document.addEventListener('DOMContentLoaded', function() {
 document.addEventListener('DOMContentLoaded', function() {
   const nav = document.querySelector('#desktop-nav');
   
-  // Initial state - fully transparent
-  nav.style.backgroundColor = 'transparent';
-  nav.style.backdropFilter = 'none';
-  nav.style.borderBottom = 'none';
-  nav.style.boxShadow = 'none';
-
-  window.addEventListener('scroll', function() {
+  function updateNav() {
     if (window.scrollY > 50) {
-      // Scrolled state - glassmorphic
-      nav.style.backgroundColor = 'rgba(27, 32, 38, 0.8)';
-      nav.style.backdropFilter = 'blur(10px)';
-      nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
-      nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+      requestAnimationFrame(() => {
+        nav.style.backgroundColor = 'rgba(27, 32, 38, 0.8)';
+        nav.style.backdropFilter = 'blur(10px)';
+        nav.style.webkitBackdropFilter = 'blur(10px)';
+        nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+        nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+      });
     } else {
-      // Back to top - transparent
-      nav.style.backgroundColor = 'transparent';
-      nav.style.backdropFilter = 'none';
-      nav.style.borderBottom = 'none';
-      nav.style.boxShadow = 'none';
+      requestAnimationFrame(() => {
+        nav.style.backgroundColor = 'transparent';
+        nav.style.backdropFilter = 'blur(0px)';
+        nav.style.webkitBackdropFilter = 'blur(0px)';
+        nav.style.borderBottom = 'none';
+        nav.style.boxShadow = 'none';
+      });
+    }
+  }
+
+  // Initial state
+  updateNav();
+
+  // Add scroll listener with throttling
+  let ticking = false;
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        updateNav();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Sections to animate
+  const sections = document.querySelectorAll('section');
+  
+  const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.15
+  };
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      // Only run animation if section is entering viewport
+      if (entry.isIntersecting && !entry.target.classList.contains('section-visible')) {
+        requestAnimationFrame(() => {
+          entry.target.classList.add('section-visible');
+        });
+        // Unobserve after animation is added
+        sectionObserver.unobserve(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Add hidden class and start observing
+  sections.forEach(section => {
+    if (!section.classList.contains('section-hidden')) {
+      section.classList.add('section-hidden');
+      sectionObserver.observe(section);
     }
   });
 });
