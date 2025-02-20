@@ -12,6 +12,7 @@ body {
   font-family: "DM Sans", sans-serif;
   background-color: #1b2026; /* Main background color */
   color: #d3d3d3; /* Grayish white for body text */
+  padding-top: 4rem; /* Height of nav + some padding */
 }
 
 html {
@@ -49,6 +50,19 @@ a,
 
 /* DESKTOP NAV */
 
+#desktop-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  transition: all 0.3s ease; /* Smooth transition for all properties */
+}
+
 nav,
 .nav-links {
   display: flex;
@@ -84,12 +98,14 @@ a:hover {
 .logo {
   font-size: 2rem;
   font-family: "DM Sans", sans-serif;
-  font-weight: 700; /* Heavier weight for logo */
-  color: #ffffff; /* Brighter white for logo */
+  font-weight: 700;
+  color: #ffffff;
+  transition: all 0.3s ease;
 }
 
 .logo:hover {
   cursor: default;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
 /* HAMBURGER MENU */
@@ -199,6 +215,7 @@ section {
   box-sizing: border-box;
   position: relative;
   overflow: visible;
+  scroll-margin-top: 4rem; /* Ensures sections scroll to correct position */
 }
 
 .section-container {
@@ -219,16 +236,19 @@ section {
 
 .section__pic-container {
   display: flex;
-  height: 450px; /* Increased from 400px */
-  width: 450px; /* Increased from 400px */
-  margin: auto 0;
+  height: 400px;
+  width: 400px;
+  overflow: hidden;
 }
 
-/* Ensure the image fills the container properly */
-.section__pic-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+/* Specific styles for profile section's circular image */
+#profile .section__pic-container {
+  border-radius: 50%;
+  height: 450px;
+  width: 450px;
+}
+
+#profile .section__pic-container img {
   border-radius: 50%;
 }
 
@@ -335,7 +355,10 @@ section {
 }
 
 .about-pic {
-  border-radius: 2rem;
+  border-radius: 2rem; /* Rounded rectangle corners */
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .arrow {
@@ -399,9 +422,10 @@ section {
 }
 
 .section__pic-container {
+  border-radius: 2rem; /* Match the image border radius */
+  overflow: hidden; /* Ensure the image stays within the rounded borders */
   height: 400px;
   width: 400px;
-  margin: auto 0;
 }
 
 /* EXPERIENCE SECTION */
@@ -664,4 +688,75 @@ section::before {
   .title {
     margin-bottom: 0.3rem; /* Keep the smaller margin for mobile */
   }
+}
+
+/* Specific styles for about section's rounded rectangle image */
+#about .section__pic-container {
+  border-radius: 2rem;
+  height: 600px;  /* Taller */
+  width: 1200px;  /* Wider */
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+#about .section__pic-container img {
+  border-radius: 2rem;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;  /* Changed back to cover from contain */
+  object-position: center 20%;  /* Adjust vertical position slightly */
+}
+
+/* Base section container styles */
+.section-container {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+  justify-content: space-between;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+/* Mobile styles remain the same */
+@media screen and (max-width: 600px) {
+  #about .section__pic-container {
+    width: 300px;
+    height: 375px;
+    border-radius: 1.5rem;  /* Slightly smaller radius for mobile */
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #about .section__pic-container {
+    width: 250px;
+    height: 312px;
+  }
+}
+
+/* Update nav links hover effect */
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-links a:hover {
+  color: #1671ff;
+  text-decoration: none;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: #1671ff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
 }

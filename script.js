@@ -105,3 +105,29 @@ document.addEventListener('DOMContentLoaded', function() {
   // Start the animation sooner
   setTimeout(type, 300); // Even quicker start (was 500)
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+  const nav = document.querySelector('#desktop-nav');
+  
+  // Initial state - fully transparent
+  nav.style.backgroundColor = 'transparent';
+  nav.style.backdropFilter = 'none';
+  nav.style.borderBottom = 'none';
+  nav.style.boxShadow = 'none';
+
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      // Scrolled state - glassmorphic
+      nav.style.backgroundColor = 'rgba(27, 32, 38, 0.8)';
+      nav.style.backdropFilter = 'blur(10px)';
+      nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+      nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
+    } else {
+      // Back to top - transparent
+      nav.style.backgroundColor = 'transparent';
+      nav.style.backdropFilter = 'none';
+      nav.style.borderBottom = 'none';
+      nav.style.boxShadow = 'none';
+    }
+  });
+});
