@@ -5,19 +5,6 @@ function toggleMenu() {
     icon.classList.toggle("open");
 }
 
-window.onscroll = function() { stickyHeader() };
-
-function stickyHeader() {
-    const header = document.querySelector("nav");
-    const sticky = header.offsetTop;
-
-    if (window.pageYOffset > sticky) {
-        header.classList.add("sticky");
-    } else {
-        header.classList.remove("sticky");
-    }
-}
-
 // Scroll offset adjustment function
 function scrollToSection(event, sectionId) {
     event.preventDefault();

@@ -5,8 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Arsh Jafri's Portfolio</title>
-    <link rel="stylesheet" href="style.css" />
-    <link rel="stylesheet" href="mediaqueries.css" />
+    
+    <!-- Preload critical resources -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" as="style">
+    <link rel="preload" href="./assets/profile-pic.png" as="image">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Defer non-critical CSS -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mediaqueries.css" media="print" onload="this.media='all'">
+    
+    <!-- Defer JavaScript -->
+    <!-- <script src="script.js" defer></script> -->
+    <script src="script.js" defer></script>
   </head>
   <body>
     <nav id="desktop-nav">
@@ -38,7 +52,12 @@
     </nav>
     <section id="profile">
       <div class="section__pic-container">
-        <img src="./assets/profile-pic.png" alt="Arsh Jafri profile picture" />
+        <img 
+          src="./assets/profile-pic.png" 
+          alt="Arsh Jafri profile picture" 
+          loading="eager" 
+          fetchpriority="high"
+        />
       </div>
       <div class="section__text">
         <h1 class="title">Arsh Jafri</h1>
@@ -60,12 +79,14 @@
             src="./assets/linkedin.png"
             alt="My LinkedIn profile"
             class="icon"
+            loading="eager"
             onclick="location.href='https://linkedin.com/in/arshjafri'"
           />
           <img
             src="./assets/github.png"
             alt="My Github profile"
             class="icon"
+            loading="eager"
             onclick="location.href='https://github.com/arsh-jafri'"
           />
         </div>
@@ -80,6 +101,7 @@
             src="./assets/about-pic.png"
             alt="Profile picture"
             class="about-pic"
+            loading="lazy"
           />
         </div>
         <div class="about-details-container">
@@ -89,6 +111,7 @@
                 src="./assets/experience.png"
                 alt="Experience icon"
                 class="icon"
+                loading="lazy"
               />
               <h3>Education</h3>
               <p>B.S. Computer Science + Economics<br />Northeastern University<br />Honors Program</p>
@@ -98,6 +121,7 @@
                 src="./assets/education.png"
                 alt="Education icon"
                 class="icon"
+                loading="lazy"
               />
               <h3>Extracurriculars</h3>
               <p>Disrupt Ventures Lead<br />CoSMO Mentor<br />Oasis Explorer Member</p>
@@ -105,21 +129,21 @@
           </div>
           <div class="text-container">
             <p>
-              Hi, I’m Arsh Jafri, a passionate software developer 
+              Hi, I'm Arsh Jafri, a passionate software developer 
               and entrepreneur with a deep love for building things 
               that have real-world impact. My journey into 
               entrepreneurship began with e-commerce arbitrage, 
               where I honed my skills in business strategy and 
               market analysis—skills I now apply to my tech projects.
               <br /><br />
-              Outside of the tech and business worlds, I’m all about 
-              staying active and creative. You’ll often find me at our 
+              Outside of the tech and business worlds, I'm all about 
+              staying active and creative. You'll often find me at our 
               campus rec center, hitting the pavement for a run, or 
               exploring new ways to express myself through graphic design. 
-              Music is my constant companion, whether I’m coding, 
+              Music is my constant companion, whether I'm coding, 
               relaxing, or just taking a break.
               <br /><br />
-              Volunteering is also close to my heart. I’ve had the privilege
+              Volunteering is also close to my heart. I've had the privilege
                of working with organizations like Tayyab Trust, where I 
                helped raise funds for COVID-19 relief in India, and the 
                Cathedral Soup Kitchen, where I served meals to those in 
@@ -127,11 +151,11 @@
                giving back and have further fueled my drive to make a 
                difference, both through my work and my actions.
               <br /><br />
-              I’m always eager to connect with like-minded individuals 
+              I'm always eager to connect with like-minded individuals 
               who share a passion for technology, business, or just good 
-              conversation. If you’re interested in my professional 
+              conversation. If you're interested in my professional 
               journey, feel free to check out my resume for more details 
-              on my experience and skills. Let’s connect and see how we 
+              on my experience and skills. Let's connect and see how we 
               can collaborate!
             </p>
           </div>
@@ -151,6 +175,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>Java</h3>
@@ -162,6 +187,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>DrRacket</h3>
@@ -173,6 +199,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>CSS</h3>
@@ -184,6 +211,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>HTML</h3>
@@ -195,6 +223,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>JavaScript</h3>
@@ -206,6 +235,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>Python</h3>
@@ -222,6 +252,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>Adobe Photoshop</h3>
@@ -233,6 +264,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>Google Workspace</h3>
@@ -244,6 +276,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>Microsoft Office</h3>
@@ -255,6 +288,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>Video Editing</h3>
@@ -266,6 +300,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>Meta Ads</h3>
@@ -277,6 +312,7 @@
                   src="./assets/checkmark.png"
                   alt="Experience icon"
                   class="icon"
+                  loading="lazy"
                 />
                 <div>
                   <h3>TikTok Ads</h3>
@@ -301,6 +337,7 @@
                 src="./assets/nexcap-project.png"
                 alt="Nexcap Project Img"
                 class="project-img"
+                loading="lazy"
               />
             </div>
             <h2 class="experience-sub-title project-title">Nexcap</h2>
@@ -332,6 +369,7 @@
                 src="./assets/website-project.png"
                 alt="Project 2"
                 class="project-img"
+                loading="lazy"
               />
             </div>
             <h2 class="experience-sub-title project-title">Personal Portfolio Site</h2>
@@ -343,13 +381,13 @@
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https:https://github.com/Arsh-Jafri/personal-portfolio'"
+                onclick="location.href='https://github.com/Arsh-Jafri/personal-portfolio'"
               >
                 Github
               </button>
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://arshjafri.netlify.app"
+                onclick="location.href='https://arshjafri.netlify.app/'"
               >
                 Live Demo
               </button>
@@ -363,6 +401,7 @@
                 src="./assets/project-3.png"
                 alt="Project 3"
                 class="project-img"
+                loading="lazy"
               />
             </div>
             <h2 class="experience-sub-title project-title">Stock Market Simulator</h2>
@@ -374,13 +413,13 @@
             <div class="btn-container">
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
+                onclick="location.href='https://github.com/Arsh-Jafri/stock-market-simulator'"
               >
                 Github
               </button>
               <button
                 class="btn btn-color-2 project-btn"
-                onclick="location.href='https://github.com/'"
+                onclick="location.href='https://github.com/Arsh-Jafri/stock-market-simulator#readme'"
               >
                 Learn More
               </button>
@@ -389,10 +428,6 @@
         </div>
       </div>
     </section>
-        </div>
-      </div>
-    </section>
-    
     <section id="contact">
       <p class="section__text__p1">Get in Touch</p>
       <h1 class="title">Contact Me</h1>
@@ -402,6 +437,7 @@
             src="./assets/email.png"
             alt="Email icon"
             class="icon contact-icon email-icon"
+            loading="lazy"
           />
           <p><a href="mailto:jafri.ar@northeastern.edu">jafri.ar@northeastern.edu</a></p>
         </div>
@@ -410,6 +446,7 @@
             src="./assets/linkedin.png"
             alt="LinkedIn icon"
             class="icon contact-icon"
+            loading="lazy"
           />
           <p><a href="https://www.linkedin.com/in/arshjafri">LinkedIn</a></p>
         </div>
@@ -428,6 +465,5 @@
       </nav>
       <p>Copyright &#169; 2024 Arsh Jafri. All Rights Reserved.</p>
     </footer>
-    <script src="script.js"></script>
   </body>
 </html>
