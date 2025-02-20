@@ -105,13 +105,36 @@
 
     /* Profile section adjustments */
     #profile {
-      padding: 2rem 1rem;
+      padding: 4rem 1rem; /* Increased top padding */
       width: 100%;
       margin: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center; /* Center vertically */
+      min-height: 100vh; /* Ensure full viewport height */
+      padding-bottom: 2rem; /* Add some bottom padding */
+    }
+
+    /* Profile image container */
+    #profile .section__pic-container {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      margin-bottom: 2rem; /* Add space below image */
+    }
+
+    /* Text content spacing */
+    .section__text {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+      text-align: center;
+    }
+
+    .typing-container {
+      margin: 0.5rem 0; /* Adjust typing text spacing */
     }
 
     /* Container adjustments */
@@ -128,15 +151,15 @@
     /* Project containers */
     #projects .about-containers {
       display: flex;
-      flex-wrap: nowrap; /* Prevent wrapping */
-      overflow-x: auto; /* Enable horizontal scrolling */
-      scroll-snap-type: x mandatory; /* Snap to each project */
-      gap: 1rem;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 2rem;
       padding: 0.5rem;
       margin: 0;
-      -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
-      scrollbar-width: none; /* Hide scrollbar on Firefox */
-      -ms-overflow-style: none; /* Hide scrollbar on IE/Edge */
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
 
     /* Hide scrollbar on Chrome/Safari */
@@ -145,9 +168,13 @@
     }
 
     #projects .details-container {
-      min-width: 85%; /* Set width for each project card */
-      scroll-snap-align: center; /* Snap point */
+      min-width: 85%;
+      scroll-snap-align: center;
       margin: 0 auto;
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     /* Contact section */
@@ -184,27 +211,7 @@
       min-height: auto;
     }
 
-    /* Profile image */
-    #profile .section__pic-container {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-    }
-
-    #profile .section__pic-container img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
     /* Text styling */
-    .section__text {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.8rem;
-    }
-
     .title {
       font-size: 2.5rem;
       margin: 0;
@@ -226,18 +233,17 @@
     /* Buttons adjustments */
     .btn-container {
       display: flex;
-      gap: 0.8rem;
-      margin: 1.5rem 0;
+      gap: 1rem;
+      margin: 0;
       width: 100%;
       justify-content: center;
-      padding: 0 1rem;
+      padding: 0;
     }
 
     .btn {
       padding: 0.8rem 1.5rem;
-      font-size: 0.9rem;
       min-width: 120px;
-      border-radius: 25px;
+      font-size: 0.9rem;
     }
 
     /* Social icons adjustments */
@@ -260,27 +266,35 @@
 
     .project-img {
       width: 100%;
-      height: 300px;
+      height: 350px;
       object-fit: cover;
       border-radius: 1.5rem;
-      margin: 0 auto 1.5rem auto;
-      display: block;
+      margin: 0 0 2rem 0;
     }
 
     .project-title {
       font-size: 1.4rem;
-      margin: 0.5rem 0 1rem 0;
+      margin: 0 0 1.5rem 0;
+      width: 100%;
+      text-align: center;
     }
 
     .project-description {
-      padding: 0 1rem;
-      margin: 0 0 1.5rem 0;
+      padding: 0;
+      margin: 0 0 2rem 0;
       font-size: 0.95rem;
+      width: 100%;
     }
 
     .project-description li {
       margin-bottom: 0.8rem;
       line-height: 1.4;
+      margin-left: 1rem;
+      padding-right: 1rem;
+    }
+
+    .project-description li::marker {
+      color: rgba(255, 255, 255, 0.7);
     }
 
     /* Scroll indicators */
@@ -311,10 +325,6 @@
     footer p {
       font-size: 0.9rem;
       opacity: 0.8;
-    }
-
-    .typing-container {
-      margin: 0.2rem 0;
     }
 
     .typing-text, .typing-cursor {
@@ -376,38 +386,130 @@
     }
 
     .article-container {
-      width: 100%;
-      padding: 0;
-      margin-bottom: 1rem;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 0.5rem;
     }
 
     article {
-      width: 100%;
       margin: 0;
-      gap: 0.3rem;
-      display: flex;
-      align-items: center;
     }
 
     article .icon {
       width: 1.2rem;
       height: 1.2rem;
-      margin-right: 0.3rem;
-    }
-
-    article h3 {
-      font-size: 0.9rem;
-      margin: 0;
-    }
-
-    article p {
-      font-size: 0.8rem;
-      margin: 0;
     }
 
     .experience-sub-title {
       margin-bottom: 1.5rem;
       font-size: 1.5rem;
+      text-align: center;
+    }
+
+    /* Fix blob overflow issues */
+    section {
+      overflow: visible !important; /* Ensure blobs are visible */
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Adjust blob positioning for mobile */
+    section::before {
+      width: 300px; /* Smaller blobs for mobile */
+      height: 300px;
+      opacity: 0.3;
+    }
+
+    section::after {
+      width: 200px; /* Smaller secondary blobs */
+      height: 200px;
+      opacity: 0.25;
+    }
+
+    /* Adjust specific blob positions */
+    #profile::before {
+      top: 0;
+      left: -50px;
+    }
+
+    #about::before {
+      top: 30%;
+      right: -50px;
+    }
+
+    #experience::before {
+      bottom: 30%;
+      left: 50%;
+    }
+
+    #projects::before {
+      top: 20%;
+      left: -50px;
+    }
+
+    #contact::before {
+      bottom: 20%;
+      right: -50px;
+    }
+
+    /* Adjust secondary blob positions */
+    #profile::after { top: 70%; right: -30px; }
+    #about::after { bottom: 10%; left: -30px; }
+    #experience::after { top: 20%; right: -30px; }
+    #projects::after { bottom: 30%; right: -30px; }
+    #contact::after { top: 30%; left: -30px; }
+
+    /* Ensure content stays above blobs */
+    .section-container,
+    .about-containers,
+    .details-container {
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Projects section adjustments */
+    #projects .title {
+      margin-bottom: 3rem; /* Increased space between title and projects */
+    }
+
+    /* Project image adjustments */
+    .project-img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
+      border-radius: 1.5rem;
+      margin: 0 0 2rem 0;
+    }
+
+    /* Project content spacing */
+    .project-title {
+      font-size: 1.4rem;
+      margin: 0 0 1.5rem 0; /* Adjusted margins */
+      width: 100%;
+      text-align: center;
+    }
+
+    .project-description {
+      padding: 0 1rem;
+      margin: 0 0 2rem 0; /* Increased bottom margin */
+      font-size: 0.95rem;
+      width: 100%;
+    }
+
+    /* Button container adjustments */
+    .btn-container {
+      display: flex;
+      gap: 1rem;
+      margin: 0;
+      width: 100%;
+      justify-content: center;
+      padding: 0;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      min-width: 120px;
+      font-size: 0.9rem;
     }
   }
   
@@ -473,7 +575,7 @@
 
     .article-container {
       grid-template-columns: repeat(2, 1fr);
-      gap: 1rem 0.8rem;
+      gap: 1rem;
     }
 
     article h3 {
@@ -499,15 +601,26 @@
     }
 
     #projects .details-container {
-      width: 95%;
       padding: 1.2rem;
     }
 
     .project-img {
-      height: 250px;
+      height: 300px;
     }
 
     .project-description {
-      font-size: 0.9rem;
+      padding: 0;
+      margin: 0 0 2rem 0;
+      font-size: 0.95rem;
+      width: 100%;
+    }
+
+    .project-description li {
+      margin-left: 0.8rem;
+      padding-right: 0.8rem;
+    }
+
+    .project-description li::marker {
+      color: rgba(255, 255, 255, 0.7);
     }
   }

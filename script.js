@@ -131,45 +131,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-  const nav = document.querySelector('#desktop-nav');
-  
-  function updateNav() {
-    if (window.scrollY > 50) {
-      requestAnimationFrame(() => {
-        nav.style.backgroundColor = 'rgba(27, 32, 38, 0.8)';
-        nav.style.backdropFilter = 'blur(10px)';
-        nav.style.webkitBackdropFilter = 'blur(10px)';
-        nav.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
-        nav.style.boxShadow = '0 4px 30px rgba(0, 0, 0, 0.1)';
-      });
-    } else {
-      requestAnimationFrame(() => {
-        nav.style.backgroundColor = 'transparent';
-        nav.style.backdropFilter = 'blur(0px)';
-        nav.style.webkitBackdropFilter = 'blur(0px)';
-        nav.style.borderBottom = 'none';
-        nav.style.boxShadow = 'none';
-      });
-    }
-  }
-
-  // Initial state
-  updateNav();
-
-  // Add scroll listener with throttling
-  let ticking = false;
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        updateNav();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-});
-
-document.addEventListener('DOMContentLoaded', function() {
   // Sections to animate
   const sections = document.querySelectorAll('section');
   
@@ -199,4 +160,56 @@ document.addEventListener('DOMContentLoaded', function() {
       sectionObserver.observe(section);
     }
   });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  const nav = document.querySelector('#desktop-nav');
+  
+  window.addEventListener('scroll', function() {
+    if (window.scrollY > 50) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  });
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.innerWidth > 600) {
+    const showMoreBtn = document.querySelector('.show-more-btn');
+    const showLessBtn = document.createElement('button');
+    showLessBtn.className = 'btn btn-color-2 show-less-btn';
+    showLessBtn.textContent = 'Show Less';
+    const hiddenProjects = document.querySelectorAll('.hidden-project');
+    const buttonContainer = document.querySelector('.show-more-container');
+    
+    // Initially hide projects and show More button
+    hiddenProjects.forEach(project => {
+      project.style.display = 'none';
+    });
+    showMoreBtn.style.display = 'block';
+    
+    // Show More click handler
+    showMoreBtn.addEventListener('click', function() {
+      hiddenProjects.forEach(project => {
+        project.style.display = 'flex';
+        project.style.animation = 'fadeIn 0.5s ease-out forwards';
+      });
+      showMoreBtn.style.display = 'none';
+      buttonContainer.appendChild(showLessBtn);
+      showLessBtn.style.display = 'block';
+    });
+    
+    // Show Less click handler
+    showLessBtn.addEventListener('click', function() {
+      hiddenProjects.forEach(project => {
+        project.style.display = 'none';
+      });
+      showMoreBtn.style.display = 'block';
+      showLessBtn.style.display = 'none';
+      
+      // Scroll back to projects section
+      document.getElementById('projects').scrollIntoView({ behavior: 'smooth' });
+    });
+  }
 });
