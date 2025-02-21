@@ -1295,15 +1295,11 @@ main {
 /* Mobile project layout */
 @media screen and (max-width: 600px) {
   #projects .experience-details-container {
-    position: relative;
-    z-index: 2;
     width: 100%;
     padding: 0;
   }
 
   #projects .about-containers {
-    position: relative;
-    z-index: 2;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -1313,6 +1309,13 @@ main {
     padding: 1rem;
     margin: 0;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    width: 100%;
+  }
+
+  #projects .about-containers::-webkit-scrollbar {
+    display: none;
   }
 
   #projects .details-container {
@@ -1323,29 +1326,19 @@ main {
     scroll-snap-stop: always;
     margin: 0 auto;
     padding: 1.5rem;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    position: relative;
-    z-index: 2;
   }
 
-  /* Project image */
+  /* Project image container */
+  .project-img-container {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+
   .project-img {
-    position: relative;
-    z-index: 3;
     width: 100%;
     height: auto;
     max-height: 350px;
     object-fit: contain;
-  }
-
-  /* Scroll indicator */
-  .scroll-indicator {
-    position: relative;
-    z-index: 2;
-    margin-top: 1rem;
   }
 
   /* Show all projects */
@@ -1420,43 +1413,37 @@ main {
   }
 }
 
-/* Update the background blob styles for mobile */
+/* Update background blobs for mobile */
 @media screen and (max-width: 600px) {
-  /* Reduce blob size and opacity for mobile */
-  section::before {
-    width: 200px;
-    height: 200px;
-    opacity: 0.15;
-    filter: blur(50px);
-  }
-
-  section::after {
-    width: 150px;
-    height: 150px;
-    opacity: 0.1;
-    filter: blur(40px);
-  }
-
-  /* Adjust blob positions for mobile */
-  #profile::before { top: 10%; left: -50px; }
-  #about::before { top: 20%; right: -50px; }
-  #experience::before { bottom: 20%; left: 50%; }
-  #projects::before { top: 20%; left: -50px; }
-  #contact::before { bottom: 20%; right: -50px; }
-
-  /* Disable blob animations on mobile */
+  /* Disable animations and simplify blobs */
   section::before,
   section::after {
     animation: none;
+    transform: none;
+    background-attachment: scroll;
+    filter: blur(60px);
+    width: 200px;
+    height: 200px;
+    opacity: 0.2;
   }
 
-  /* Adjust glassmorphic effect for better mobile performance */
-  .details-container,
+  /* Force hardware acceleration on containers */
+  .details-container {
+    transform: translateZ(0);
+    -webkit-transform: translateZ(0);
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    perspective: 1000;
+    -webkit-perspective: 1000;
+  }
+
+  /* Simplify glassmorphism effect */
   #projects .details-container,
+  .details-container,
   .contact-info-upper-container {
+    background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
-    background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.1);
   }
 
@@ -1464,8 +1451,20 @@ main {
   .section-container,
   .about-containers,
   .details-container,
-  .experience-details-container {
+  .project-container {
     position: relative;
     z-index: 2;
+  }
+
+  /* Adjust blob positions */
+  #profile::before { top: 0; left: -50px; }
+  #about::before { top: 30%; right: -50px; }
+  #experience::before { bottom: 30%; left: 50%; }
+  #projects::before { top: 20%; left: -50px; }
+  #contact::before { bottom: 20%; right: -50px; }
+
+  /* Remove secondary blobs */
+  section::after {
+    display: none;
   }
 }
