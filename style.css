@@ -1534,25 +1534,3 @@ main {
     background: transparent;
   }
 }
-
-/* Remove blobs from projects section on mobile */
-@media screen and (max-width: 600px) {
-  /* Remove all blob effects from projects section */
-  #projects::before,
-  #projects::after {
-    display: none;
-  }
-
-  /* Set solid background for projects section */
-  #projects {
-    background: #1b2026;
-    overflow: visible;
-  }
-
-  /* Keep card styling clean */
-  #projects .details-container {
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: none;
-  }
-}
