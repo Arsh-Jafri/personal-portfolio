@@ -1412,3 +1412,53 @@ main {
     display: none !important;
   }
 }
+
+/* Update the background blob styles for mobile */
+@media screen and (max-width: 600px) {
+  /* Reduce blob size and opacity for mobile */
+  section::before {
+    width: 200px;
+    height: 200px;
+    opacity: 0.15;
+    filter: blur(50px);
+  }
+
+  section::after {
+    width: 150px;
+    height: 150px;
+    opacity: 0.1;
+    filter: blur(40px);
+  }
+
+  /* Adjust blob positions for mobile */
+  #profile::before { top: 10%; left: -50px; }
+  #about::before { top: 20%; right: -50px; }
+  #experience::before { bottom: 20%; left: 50%; }
+  #projects::before { top: 20%; left: -50px; }
+  #contact::before { bottom: 20%; right: -50px; }
+
+  /* Disable blob animations on mobile */
+  section::before,
+  section::after {
+    animation: none;
+  }
+
+  /* Adjust glassmorphic effect for better mobile performance */
+  .details-container,
+  #projects .details-container,
+  .contact-info-upper-container {
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* Ensure content stays above blobs */
+  .section-container,
+  .about-containers,
+  .details-container,
+  .experience-details-container {
+    position: relative;
+    z-index: 2;
+  }
+}
