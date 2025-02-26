@@ -47,14 +47,13 @@ const Profile: React.FC = () => {
 
     timer = setTimeout(type, typingSpeed);
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, roleIndex, roles, typingSpeed]);
+  }, [displayText, isDeleting, roleIndex, typingSpeed]);
 
   return (
     <section id="profile">
       <div className="section__pic-container">
         <img 
           src={ProfilePic}
-          alt="Arsh Jafri profile picture" 
           loading="eager" 
           fetchPriority="high"
           className="profile-pic"
