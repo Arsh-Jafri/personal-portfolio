@@ -112,8 +112,10 @@
 }
 
 .typing-container {
-  display: inline-block;
-  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0.5rem 0;
   min-height: 3.5rem;
 }
 
@@ -122,13 +124,22 @@
   font-weight: 500;
   color: white;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  line-height: 1.2;
 }
 
 .typing-cursor {
   display: inline-block;
   width: 3px;
-  margin-left: 3px;
+  height: 2.5rem;
+  margin-left: 0.5rem;
   background-color: white;
+  animation: blink 1s infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 .btn-container {
@@ -213,7 +224,11 @@
   }
 
   .typing-text {
-    font-size: 1.5rem;
+    font-size: 2rem;
+  }
+  
+  .typing-cursor {
+    height: 1.4rem;
   }
 
   .section__text__p2 {

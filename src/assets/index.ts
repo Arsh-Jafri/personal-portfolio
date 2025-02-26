@@ -22,5 +22,6 @@ export { default as Resume } from './documents/ArshJafri-Resume.pdf';
 export { default as NexcapPitch } from './documents/Nexcap-pitch.pdf';
 export { default as NexcapOnePager } from './documents/Nexcap-One-Pager.pdf';
 
-// Favicon
-export { default as Favicon } from './icons/favicon.png';
+// Logo and Favicon
+export { default as Logo } from './logos/logo.png';
+export { default as Favicon } from './logos/favicon.png';

@@ -17,7 +17,7 @@ const About: React.FC = () => {
     {
       icon: HobbiesIcon,
       title: "Hobbies & Interests",
-      items: ["Fitness & Weightlifting", "Graphic Design", "Music"]
+      items: ["Fitness & Weightlifting", "Graphic Design", "Listening to Music"]
     },
     {
       icon: EducationIcon,

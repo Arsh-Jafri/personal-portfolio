@@ -16,8 +16,8 @@ const Profile: React.FC = () => {
   useEffect(() => {
     const roles = [
       "Software Developer",
+      "Full Stack Engineer",
       "UI/UX Designer",
-      "Entrepreneur",
       "Problem Solver"
     ];
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import '../../styles/components/navigation.css';
+import { Logo } from '../../assets';
 
 const DesktopNav: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -28,7 +29,9 @@ const DesktopNav: React.FC = () => {
 
   return (
     <nav id="desktop-nav" className={isScrolled ? 'scrolled' : ''}>
-      <div className="logo">Arsh Jafri</div>
+      <div className="logo">
+        <img src={Logo} alt="Arsh Jafri" className="logo-image" />
+      </div>
       <div>
         <ul className="nav-links">
           <li>
