@@ -34,7 +34,7 @@ const About: React.FC = () => {
         <div className="section__pic-container">
           <img
             src={AboutPic}
-            alt="Arsh"
+            alt="Portrait"
             className="about-pic"
             loading="lazy"
           />
@@ -45,7 +45,7 @@ const About: React.FC = () => {
               <div key={index} className="details-container">
                 <img
                   src={detail.icon}
-                  alt={`${detail.title} icon`}
+                  alt={detail.title}
                   className="icon"
                   loading="lazy"
                 />

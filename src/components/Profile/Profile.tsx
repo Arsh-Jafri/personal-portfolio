@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   ProfilePic,
   LinkedInIcon,
@@ -13,14 +13,14 @@ const Profile: React.FC = () => {
   const [roleIndex, setRoleIndex] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(70);
 
-  const roles = useMemo(() => [
-    "Software Developer",
-    "UI/UX Designer",
-    "Entrepreneur",
-    "Problem Solver"
-  ], []);
-
   useEffect(() => {
+    const roles = [
+      "Software Developer",
+      "UI/UX Designer",
+      "Entrepreneur",
+      "Problem Solver"
+    ];
+
     let timer: ReturnType<typeof setTimeout>;
     const currentRole = roles[roleIndex];
     
@@ -47,14 +47,14 @@ const Profile: React.FC = () => {
 
     timer = setTimeout(type, typingSpeed);
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, roleIndex, typingSpeed, roles]);
+  }, [displayText, isDeleting, roleIndex, typingSpeed]);
 
   return (
     <section id="profile">
       <div className="section__pic-container">
         <img 
           src={ProfilePic}
-          alt="Arsh"
+          alt="Portrait"
           loading="eager" 
           fetchPriority="high"
           className="profile-pic"
@@ -88,7 +88,7 @@ const Profile: React.FC = () => {
           <a href="https://linkedin.com/in/arshjafri" target="_blank" rel="noopener noreferrer">
             <img
               src={LinkedInIcon}
-              alt="LinkedIn"
+              alt="Social link"
               className="icon"
               loading="eager"
             />
@@ -96,7 +96,7 @@ const Profile: React.FC = () => {
           <a href="https://github.com/arsh-jafri" target="_blank" rel="noopener noreferrer">
             <img
               src={GithubIcon}
-              alt="GitHub"
+              alt="Social link"
               className="icon"
               loading="eager"
             />
