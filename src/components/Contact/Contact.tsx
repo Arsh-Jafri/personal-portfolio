@@ -23,19 +23,17 @@ const Contact: React.FC = () => {
     <section id="contact">
       <p className="section__text__p1">Get in Touch</p>
       <h1 className="title">Contact Me</h1>
-      <div className="contact-info-upper-container">
+      <div className="contact-info-container">
         {contactInfo.map((info, index) => (
-          <div key={index} className="contact-info-container">
+          <a key={index} href={info.link} className="contact-method">
             <img
               src={info.icon}
               alt={`${info.type} icon`}
               className={`icon contact-icon ${info.type === 'email' ? 'email-icon' : ''}`}
               loading="lazy"
             />
-            <p>
-              <a href={info.link}>{info.text}</a>
-            </p>
-          </div>
+            <span>{info.text}</span>
+          </a>
         ))}
       </div>
     </section>

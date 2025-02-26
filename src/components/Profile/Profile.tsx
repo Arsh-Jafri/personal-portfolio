@@ -61,7 +61,7 @@ const Profile: React.FC = () => {
         />
       </div>
       <div className="section__text">
-        <h1 className="title">Hi, I'm Arsh Jafri</h1>
+        <h1 className="title">👋 Hey, I'm Arsh Jafri</h1>
         <div className="typing-container">
           <span className="typing-text">{displayText}</span>
           <span className="typing-cursor">|</span>
@@ -70,13 +70,13 @@ const Profile: React.FC = () => {
         <h4 className="section__uni__name">Northeastern University Honors Program '27</h4>
         <div className="btn-container">
           <button
-            className="btn btn-color-2"
+            className="btn btn-color-1"
             onClick={() => window.open(Resume)}
           >
             My Resume
           </button>
           <button 
-            className="btn btn-color-1" 
+            className="btn btn-color-2" 
             onClick={() => {
               document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' });
             }}

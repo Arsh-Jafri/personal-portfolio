@@ -1,0 +1,188 @@
+.section-blob-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+section, footer {
+  position: relative;
+  z-index: 2;
+}
+
+.blob {
+  position: absolute;
+  background: rgba(22, 113, 255, 0.25);
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: blobFloat 20s infinite ease-in-out, blobFadeIn 2s ease-out forwards;
+  opacity: 0;
+}
+
+/* Profile Section Blobs */
+#profile .blob:nth-child(1) {
+  width: 600px;
+  height: 600px;
+  top: 10%;
+  left: 5%;
+  transform: none;
+  animation-delay: 0s;
+  background: rgba(22, 113, 255, 0.2);
+  filter: blur(120px);
+}
+
+#profile .blob:nth-child(2) {
+  width: 500px;
+  height: 500px;
+  bottom: 10%;
+  right: 5%;
+  transform: none;
+  animation-delay: 0.3s;
+  background: rgba(22, 113, 255, 0.15);
+  filter: blur(120px);
+}
+
+/* Projects Section Blobs */
+#projects .blob:nth-child(1) {
+  width: 700px;
+  height: 700px;
+  top: -10%;
+  right: -10%;
+  animation-delay: 0.2s;
+  background: rgba(22, 113, 255, 0.2);
+  filter: blur(120px);
+}
+
+#projects .blob:nth-child(2) {
+  width: 500px;
+  height: 500px;
+  bottom: 20%;
+  left: -5%;
+  animation-delay: 0.5s;
+  background: rgba(22, 113, 255, 0.15);
+  filter: blur(100px);
+}
+
+#projects .blob:nth-child(3) {
+  width: 300px;
+  height: 300px;
+  top: 40%;
+  right: 20%;
+  animation-delay: 0.7s;
+  background: rgba(22, 113, 255, 0.12);
+  filter: blur(80px);
+}
+
+/* About Section Blobs */
+#about .blob:nth-child(1) {
+  width: 800px;
+  height: 800px;
+  top: -20%;
+  left: -10%;
+  animation-delay: 0.1s;
+  background: rgba(22, 113, 255, 0.18);
+  filter: blur(130px);
+}
+
+#about .blob:nth-child(2) {
+  width: 400px;
+  height: 400px;
+  bottom: 10%;
+  right: 5%;
+  animation-delay: 0.4s;
+  background: rgba(22, 113, 255, 0.15);
+  filter: blur(90px);
+}
+
+/* Experience Section Blobs */
+#experience .blob:nth-child(1) {
+  width: 600px;
+  height: 600px;
+  top: 15%;
+  right: -15%;
+  animation-delay: 0.3s;
+  background: rgba(22, 113, 255, 0.2);
+  filter: blur(110px);
+}
+
+#experience .blob:nth-child(2) {
+  width: 450px;
+  height: 450px;
+  bottom: -10%;
+  left: 10%;
+  animation-delay: 0.6s;
+  background: rgba(22, 113, 255, 0.15);
+  filter: blur(100px);
+}
+
+#experience .blob:nth-child(3) {
+  width: 250px;
+  height: 250px;
+  top: 40%;
+  left: 30%;
+  animation-delay: 0.8s;
+  background: rgba(22, 113, 255, 0.12);
+  filter: blur(70px);
+}
+
+/* Contact Section Blobs */
+#contact .blob:nth-child(1) {
+  width: 550px;
+  height: 550px;
+  top: -15%;
+  left: -10%;
+  animation-delay: 0.2s;
+  background: rgba(22, 113, 255, 0.18);
+  filter: blur(120px);
+}
+
+/* Footer Blobs */
+footer ~ .section-blob-container .blob:nth-child(1) {
+  width: 400px;
+  height: 400px;
+  bottom: 0;
+  right: -10%;
+  animation-delay: 0.3s;
+  background: rgba(22, 113, 255, 0.15);
+  filter: blur(100px);
+}
+
+@keyframes blobFloat {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes blobFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@media (max-width: 768px) {
+  .blob {
+    filter: blur(60px);
+  }
+  
+  [class*="section"] .blob {
+    width: 300px !important;
+    height: 300px !important;
+  }
+  
+  footer ~ .section-blob-container .blob {
+    width: 200px !important;
+    height: 200px !important;
+  }
+} 

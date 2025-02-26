@@ -13,23 +13,24 @@
 
 .about-containers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 2.5rem;
   width: 100%;
-  max-width: 1600px;
+  max-width: 1200px;
   margin: 2rem auto;
 }
 
 .details-container {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
-  border-radius: 5rem;
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  overflow: hidden;
 }
 
 .details-container h3 {
@@ -72,27 +73,17 @@
   opacity: 0.9;
 }
 
-.project-img-container {
-  width: 100%;
-  height: 400px;
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgb(20, 23, 28);
-}
-
 .project-img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
-  padding: 0;
+  display: block;
+  border-radius: 20px;
 }
 
 .project-content {
   padding: 2rem;
+  width: 100%;
 }
 
 .details-container .project-title {
@@ -117,11 +108,15 @@
 }
 
 .tag {
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.8);
+  background: #1671ff33;
+  color: white;
   padding: 0.5rem 1rem;
   border-radius: 2rem;
   font-size: 0.9rem;
+  border: 1px solid #166fff0e;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
 }
 
 .project-description {
@@ -139,18 +134,29 @@
 
 .btn-container {
   display: flex;
-  gap: 1rem;
-  margin-top: auto;
   justify-content: center;
+  gap: 1rem;
 }
 
 .project-btn {
   background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
   color: white;
-  padding: 0.8rem 1.5rem;
-  border-radius: 2rem;
-  font-size: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.project-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-container .btn:first-child {
+  background: #1671FF;
+  color: white;
+  border: none;
+}
+
+.btn-container .btn:first-child:hover {
+  background: #1464e6;
 }
 
 .scroll-indicator {
@@ -184,33 +190,44 @@
 
 @media screen and (max-width: 1200px) {
   .about-containers {
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   }
-  .project-img-container {
-    height: 350px;
+  .project-img {
+    height: 180px;
   }
 }
 
 @media screen and (max-width: 768px) {
   .about-containers {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     padding: 0 1rem;
   }
-  .project-img-container {
-    height: 300px;
+  .project-img {
+    height: 160px;
   }
 }
 
 @media screen and (max-width: 480px) {
-  .project-img-container {
-    height: 250px;
+  .project-img {
+    height: 140px;
   }
 }
 
 .project-card {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
-  border-radius: 5rem;
+  border-radius: 20px;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-} 
+  overflow: hidden;
+  padding: 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.about-containers > *:nth-child(1) { animation-delay: 0.2s; }
+.about-containers > *:nth-child(2) { animation-delay: 0.4s; }
+.about-containers > *:nth-child(3) { animation-delay: 0.6s; }
+.about-containers > *:nth-child(4) { animation-delay: 0.8s; }
+.about-containers > *:nth-child(5) { animation-delay: 1s; }
+.about-containers > *:nth-child(6) { animation-delay: 1.2s; } 

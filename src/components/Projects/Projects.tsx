@@ -178,7 +178,7 @@ const Projects: React.FC = () => {
       {window.innerWidth > 600 && (
         <div className="show-more-container">
           <button
-            className="btn btn-color-2 show-more-btn"
+            className="btn btn-color-3 show-more-btn"
             onClick={() => setShowHidden(!showHidden)}
           >
             {showHidden ? 'Show Less' : 'Show More'}

@@ -3,17 +3,55 @@
   justify-content: center;
   gap: 5rem;
   height: 100vh;
-  background: #1b1f27;
+  position: relative;
   padding-top: 0;
+  background: transparent;
+}
+
+#profile::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  z-index: 0;
+}
+
+#profile .section-blob-container {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  pointer-events: none;
 }
 
 #profile .section__pic-container {
+  position: relative;
   display: flex;
   height: 400px;
   width: 400px;
   margin: auto 0;
-  border-radius: 1rem;
+  border-radius: 50%;
   overflow: hidden;
+  animation: float 3s ease-in-out infinite;
+  z-index: 2;
+  background: transparent;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .profile-pic {
@@ -21,6 +59,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center 30%;
+  border-radius: 50%;
 }
 
 .section__text {
@@ -29,6 +68,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+  position: relative;
+  z-index: 2;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: transparent;
 }
 
 .section__text p {
@@ -46,14 +90,16 @@
   font-size: 2rem;
   font-weight: 500;
   margin: 0;
-  color: #D3D3D3;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .section__uni__name {
   font-size: 1.5rem;
   font-weight: 400;
-  color: #D3D3D3;
+  color: white;
   margin-bottom: 2.5rem;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .title {
@@ -61,6 +107,8 @@
   font-weight: 600;
   text-align: center;
   margin-bottom: 0;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .typing-container {
@@ -73,6 +121,7 @@
   font-size: 3.5rem;
   font-weight: 500;
   color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 .typing-cursor {
@@ -87,6 +136,11 @@
   justify-content: center;
   gap: 1.5rem;
   margin-bottom: 2rem;
+  position: relative;
+  z-index: 2;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background: transparent;
 }
 
 .btn {
@@ -98,11 +152,19 @@
   border-radius: 3rem;
   cursor: pointer;
   border: none;
+  backdrop-filter: blur(10px);
 }
 
-.btn-color-1, .btn-color-2 {
+.btn-color-1 {
+  background: rgba(22, 113, 255, 0.8);
+  color: white;
+  border: none;
+}
+
+.btn-color-2 {
   background: rgba(255, 255, 255, 0.1);
   color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 #socials-container {
@@ -110,6 +172,11 @@
   justify-content: center;
   gap: 1.5rem;
   margin-top: 0;
+  position: relative;
+  z-index: 2;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background: transparent;
 }
 
 #socials-container img {
