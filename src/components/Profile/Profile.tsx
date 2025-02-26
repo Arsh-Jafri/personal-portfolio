@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import {
   ProfilePic,
   LinkedInIcon,
@@ -7,18 +7,18 @@ import {
 } from '../../assets';
 import '../../styles/components/profile.css';
 
-const roles = [
-  "Software Developer",
-  "UI/UX Designer",
-  "Entrepreneur",
-  "Problem Solver"
-];
-
 const Profile: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(true);
   const [roleIndex, setRoleIndex] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(70);
+
+  const roles = useMemo(() => [
+    "Software Developer",
+    "UI/UX Designer",
+    "Entrepreneur",
+    "Problem Solver"
+  ], []);
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
@@ -47,14 +47,14 @@ const Profile: React.FC = () => {
 
     timer = setTimeout(type, typingSpeed);
     return () => clearTimeout(timer);
-  }, [displayText, isDeleting, roleIndex, typingSpeed]);
+  }, [displayText, isDeleting, roleIndex, typingSpeed, roles]);
 
   return (
     <section id="profile">
       <div className="section__pic-container">
         <img 
           src={ProfilePic}
-          alt="Arsh Jafri"
+          alt="Arsh"
           loading="eager" 
           fetchPriority="high"
           className="profile-pic"
@@ -88,7 +88,7 @@ const Profile: React.FC = () => {
           <a href="https://linkedin.com/in/arshjafri" target="_blank" rel="noopener noreferrer">
             <img
               src={LinkedInIcon}
-              alt="My LinkedIn profile"
+              alt="LinkedIn"
               className="icon"
               loading="eager"
             />
@@ -96,7 +96,7 @@ const Profile: React.FC = () => {
           <a href="https://github.com/arsh-jafri" target="_blank" rel="noopener noreferrer">
             <img
               src={GithubIcon}
-              alt="My Github profile"
+              alt="GitHub"
               className="icon"
               loading="eager"
             />
