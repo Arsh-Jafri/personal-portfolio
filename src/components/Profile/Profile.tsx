@@ -7,18 +7,18 @@ import {
 } from '../../assets';
 import '../../styles/components/profile.css';
 
+const roles = [
+  "Software Developer",
+  "UI/UX Designer",
+  "Entrepreneur",
+  "Problem Solver"
+];
+
 const Profile: React.FC = () => {
   const [displayText, setDisplayText] = useState('');
   const [isDeleting, setIsDeleting] = useState(true);
   const [roleIndex, setRoleIndex] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(70);
-
-  const roles = [
-    "Software Developer",
-    "UI/UX Designer",
-    "Entrepreneur",
-    "Problem Solver"
-  ];
 
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
@@ -54,6 +54,7 @@ const Profile: React.FC = () => {
       <div className="section__pic-container">
         <img 
           src={ProfilePic}
+          alt="Arsh Jafri"
           loading="eager" 
           fetchPriority="high"
           className="profile-pic"

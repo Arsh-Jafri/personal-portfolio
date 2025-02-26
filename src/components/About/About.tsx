@@ -34,6 +34,7 @@ const About: React.FC = () => {
         <div className="section__pic-container">
           <img
             src={AboutPic}
+            alt="Arsh Jafri"
             className="about-pic"
             loading="lazy"
           />
