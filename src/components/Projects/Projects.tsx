@@ -60,7 +60,7 @@ const Projects: React.FC = () => {
       image: WebsiteProject,
       tags: ["TypeScript", "React", "HTML/CSS"],
       description: [
-        "Fully responsive portfolio website built with React and TypeScript, featuring a design and interactive components."
+        "Fully responsive portfolio website built with React and TypeScript, featuring a responsive design and interactive components."
       ],
       buttons: [
         { text: "GitHub", link: "https://github.com/Arsh-Jafri/personal-portfolio" },
