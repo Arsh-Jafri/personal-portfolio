@@ -6,7 +6,7 @@ import {
   NexcapProject,
   WebsiteProject,
   BrickBreakerProject,
-  StockProject,
+  SnakeGameProject,
   NexcapPitch,
   NexcapOnePager
 } from '../../assets';
@@ -32,9 +32,9 @@ const Projects: React.FC = () => {
       id: 1,
       title: "Clearview",
       image: ClearviewProject,
-      tags: ["NLP", "JavaScript", "HTML/CSS", "Web Scraping"],
+      tags: ["JavaScript", "HTML/CSS", "NLP", "Sentiment Analysis", "Web Scraping"],
       description: [
-        "A Chrome extension that analyzes news articles for political bias using NLP and sentiment analysis."
+        "A Chrome extension that analyzes news articles for political bias and highlights flagged sections using NLP and sentiment analysis."
       ],
       buttons: [
         { text: "GitHub", link: "https://github.com/Arsh-Jafri/clearview" },
@@ -45,9 +45,9 @@ const Projects: React.FC = () => {
       id: 2,
       title: "Econostats",
       image: EconostatsProject,
-      tags: ["Python", "Flask", "HTML/CSS", "Data Visualization"],
+      tags: ["Python", "Flask", "HTML/CSS", "FRED API", "Data Visualization"],
       description: [
-        "A real-time economic data visualization platform. Features interactive charts, custom data uploading, and FRED API integration."
+        "A real-time economic data visualization platform. Features FRED API integration, custom data uploading, and interactive charts."
       ],
       buttons: [
         { text: "GitHub", link: "https://github.com/Arsh-Jafri/econostats" },
@@ -56,6 +56,19 @@ const Projects: React.FC = () => {
     },
     {
       id: 3,
+      title: "Dijkstra's Snake Game",
+      image: SnakeGameProject,
+      tags: ["Java", "Java Swing", "AWT", "Dijkstra's Algorithm"],
+      description: [
+        "A modern take on the classic Snake game featuring an AI opponent that uses Dijkstra's algorithm for intelligent pathfinding."
+      ],
+      buttons: [
+        { text: "GitHub", link: "https://github.com/Arsh-Jafri/dijkstra-snake-game" },
+        { text: "Learn More", link: "https://github.com/Arsh-Jafri/dijkstra-snake-game/blob/main/README.md" }
+      ]
+    },
+    {
+      id: 4,
       title: "Personal Portfolio",
       image: WebsiteProject,
       tags: ["TypeScript", "React", "HTML/CSS"],
@@ -68,7 +81,7 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      id: 4,
+      id: 5,
       title: "Nexcap",
       image: NexcapProject,
       tags: ["Figma", "UI/UX", "FinTech", "Pitch Deck"],
@@ -81,7 +94,7 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      id: 5,
+      id: 6,
       title: "Brick Breaker",
       image: BrickBreakerProject,
       tags: ["Java", "Java Swing", "GUI", "OOP"],
@@ -91,19 +104,6 @@ const Projects: React.FC = () => {
       buttons: [
         { text: "GitHub", link: "https://github.com/Arsh-Jafri/brick-breaker" },
         { text: "Learn More", link: "https://github.com/Arsh-Jafri/brick-breaker/blob/main/README.md" }
-      ]
-    },
-    {
-      id: 6,
-      title: "Stock Portfolio Manager",
-      image: StockProject,
-      tags: ["Java", "API", "GUI", "MVC Architecture"],
-      description: [
-        "A stock trading simulation tool that allows users to create a portfolio, buy and sell stocks, and analyze stock performance.",
-      ],
-      buttons: [
-        { text: "GitHub", link: "https://github.com/Arsh-Jafri/stock-portfolio-manager"},
-        { text: "Learn More", link: "https://github.com/Arsh-Jafri/stock-portfolio-manager/blob/main/README.md" }
       ]
     }
   ];
