@@ -31,11 +31,9 @@ const Projects: React.FC = () => {
       id: 1,
       title: "Clearview",
       image: ClearviewProject,
-      tags: ["React", "TypeScript", "AI", "News Analysis"],
+      tags: ["NLP", "JavaScript", "HTML/CSS", "Web Scraping"],
       description: [
-        "Developed a news analysis platform that uses AI to detect bias and misinformation",
-        "Features: article bias scoring, flagged sections highlighting, and source credibility analysis",
-        "Built with React, TypeScript, and integrated with various NLP APIs"
+        "A Chrome extension that analyzes news articles for political bias using NLP and sentiment analysis."
       ],
       buttons: [
         { text: "GitHub", link: "https://github.com/Arsh-Jafri/clearview" },
@@ -46,11 +44,9 @@ const Projects: React.FC = () => {
       id: 2,
       title: "Econostats",
       image: EconostatsProject,
-      tags: ["React", "D3.js", "Data Visualization", "Economics"],
+      tags: ["Python", "Flask", "HTML/CSS", "Data Visualization"],
       description: [
-        "Created an economic data visualization platform for analyzing trends and patterns",
-        "Implemented interactive charts and graphs using D3.js for complex economic indicators",
-        "Features real-time data updates and comparative analysis tools"
+        "A real-time economic data visualization platform. Features interactive charts, custom datas uploading, and FRED API integration."
       ],
       buttons: [
         { text: "GitHub", link: "https://github.com/Arsh-Jafri/econostats" },
@@ -61,11 +57,9 @@ const Projects: React.FC = () => {
       id: 3,
       title: "Personal Portfolio",
       image: WebsiteProject,
-      tags: ["React", "TypeScript", "CSS"],
+      tags: ["TypeScript", "React", "HTML/CSS"],
       description: [
-        "Designed and developed a modern, responsive portfolio website using React and TypeScript",
-        "Implemented custom animations, responsive design, and interactive UI components",
-        "Optimized performance and accessibility following best practices"
+        "Fully responsive portfolio website built with React and TypeScript, featuring a design and interactive components."
       ],
       buttons: [
         { text: "GitHub", link: "https://github.com/Arsh-Jafri/personal-portfolio" },
