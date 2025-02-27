@@ -5,6 +5,7 @@ import {
   EconostatsProject,
   NexcapProject,
   WebsiteProject,
+  BrickBreakerProject,
   StockProject,
   NexcapPitch,
   NexcapOnePager
@@ -72,9 +73,7 @@ const Projects: React.FC = () => {
       image: NexcapProject,
       tags: ["Figma", "UI/UX", "FinTech", "Pitch Deck"],
       description: [
-        "Developed and pitched a crowdfunding app that allows retail investors access to private securities",
-        "Won $1.5k and secured 2nd place in an 8-week FinTech startup competition",
-        "Spearheaded the ideation, prototyping, and pitching process"
+        "Developed and pitched a crowdfunding app that allows retail investors access to private securities. Secured $1.5k in seed funding from a panel of judges.",
       ],
       buttons: [
         { text: "Pitchdeck", link: NexcapPitch },
@@ -83,17 +82,28 @@ const Projects: React.FC = () => {
     },
     {
       id: 5,
-      title: "Stock Market Simulator",
-      image: StockProject,
-      tags: ["Java", "API", "GUI"],
+      title: "Brick Breaker",
+      image: BrickBreakerProject,
+      tags: ["Java", "Java Swing", "GUI", "OOP"],
       description: [
-        "Built a stock market trading simulation tool and GUI using Java",
-        "Features: creating a portfolio, buying/selling stock, downloading stock data, and analyzing stock performance",
-        "Implemented use of Alpha Vantage stock data API"
+        "A classic brick breaker game with dynamic difficulty scaling, a power-up system, custom physics, and collision detection."
       ],
       buttons: [
-        { text: "Github", link: "https://github.com/Arsh-Jafri/stock-market-simulator" },
-        { text: "Learn More", link: "https://github.com/Arsh-Jafri/stock-market-simulator#readme" }
+        { text: "GitHub", link: "https://github.com/Arsh-Jafri/brick-breaker" },
+        { text: "Learn More", link: "https://github.com/Arsh-Jafri/brick-breaker/blob/main/README.md" }
+      ]
+    },
+    {
+      id: 6,
+      title: "Stock Portfolio Manager",
+      image: StockProject,
+      tags: ["Java", "API", "GUI", "MVC Architecture"],
+      description: [
+        "A stock trading simulation tool that allows users to create a portfolio, buy and sell stocks, and analyze stock performance.",
+      ],
+      buttons: [
+        { text: "GitHub", link: "https://github.com/Arsh-Jafri/stock-portfolio-manager"},
+        { text: "Learn More", link: "https://github.com/Arsh-Jafri/stock-portfolio-manager/blob/main/README.md" }
       ]
     }
   ];
