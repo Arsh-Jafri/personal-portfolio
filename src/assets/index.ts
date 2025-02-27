@@ -3,11 +3,11 @@ export { default as ProfilePic } from './images/profile-pic.png';
 export { default as AboutPic } from './images/about-pic.png';
 
 // Project Images
+export { default as ClearviewProject } from './images/clearview-pic.png';
+export { default as EconostatsProject } from './images/econostats-pic.png';
 export { default as NexcapProject } from './images/nexcap-project.png';
 export { default as WebsiteProject } from './images/website-project.png';
-export { default as Project3 } from './images/project-3.png';
-export { default as Project4 } from './images/project-4.png';
-export { default as Project5 } from './images/project-5.png';
+export { default as StockProject } from './images/project-3.png';
 
 // Icons
 export { default as LinkedInIcon } from './icons/linkedin.png';

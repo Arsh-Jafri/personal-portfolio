@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import ProjectCard from './ProjectCard';
 import {
+  ClearviewProject,
+  EconostatsProject,
   NexcapProject,
   WebsiteProject,
-  Project3,
-  Project4,
-  Project5,
+  StockProject,
   NexcapPitch,
   NexcapOnePager
 } from '../../assets';
@@ -21,19 +21,62 @@ interface Project {
     text: string;
     link: string;
   }[];
-  hidden?: boolean;
 }
 
 const Projects: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [showHidden, setShowHidden] = useState(false);
 
   const projects: Project[] = [
     {
       id: 1,
+      title: "Clearview",
+      image: ClearviewProject,
+      tags: ["React", "TypeScript", "AI", "News Analysis"],
+      description: [
+        "Developed a news analysis platform that uses AI to detect bias and misinformation",
+        "Features: article bias scoring, flagged sections highlighting, and source credibility analysis",
+        "Built with React, TypeScript, and integrated with various NLP APIs"
+      ],
+      buttons: [
+        { text: "GitHub", link: "https://github.com/Arsh-Jafri/clearview" },
+        { text: "Download", link: "https://chromewebstore.google.com/detail/clearview-ai-powered-poli/eaaojgnnhjbcmggeepkpkemopfnjcpnb?hl=en&authuser=0" }
+      ]
+    },
+    {
+      id: 2,
+      title: "Econostats",
+      image: EconostatsProject,
+      tags: ["React", "D3.js", "Data Visualization", "Economics"],
+      description: [
+        "Created an economic data visualization platform for analyzing trends and patterns",
+        "Implemented interactive charts and graphs using D3.js for complex economic indicators",
+        "Features real-time data updates and comparative analysis tools"
+      ],
+      buttons: [
+        { text: "GitHub", link: "https://github.com/Arsh-Jafri/econostats" },
+        { text: "Visit Site", link: "http://econostats.co" }
+      ]
+    },
+    {
+      id: 3,
+      title: "Personal Portfolio",
+      image: WebsiteProject,
+      tags: ["React", "TypeScript", "CSS"],
+      description: [
+        "Designed and developed a modern, responsive portfolio website using React and TypeScript",
+        "Implemented custom animations, responsive design, and interactive UI components",
+        "Optimized performance and accessibility following best practices"
+      ],
+      buttons: [
+        { text: "GitHub", link: "https://github.com/Arsh-Jafri/personal-portfolio" },
+        { text: "Live Demo", link: "https://arshjafri.netlify.app/" }
+      ]
+    },
+    {
+      id: 4,
       title: "Nexcap",
       image: NexcapProject,
-      tags: ["Figma", "UI/UX", "Pitch Deck"],
+      tags: ["Figma", "UI/UX", "FinTech", "Pitch Deck"],
       description: [
         "Developed and pitched a crowdfunding app that allows retail investors access to private securities",
         "Won $1.5k and secured 2nd place in an 8-week FinTech startup competition",
@@ -45,66 +88,19 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      id: 2,
-      title: "Personal Portfolio Site",
-      image: WebsiteProject,
-      tags: ["HTML", "CSS", "JavaScript"],
-      description: [
-        "Learned the basics of frontend web development using HTML, CSS, and JavaScript.",
-        "Designed and developed a responsive personal portfolio website.",
-        "Deployed website using Netlify."
-      ],
-      buttons: [
-        { text: "Github", link: "https://github.com/Arsh-Jafri/personal-portfolio" },
-        { text: "Live Demo", link: "https://arshjafri.netlify.app/" }
-      ]
-    },
-    {
-      id: 3,
+      id: 5,
       title: "Stock Market Simulator",
-      image: Project3,
+      image: StockProject,
       tags: ["Java", "API", "GUI"],
       description: [
-        "Built a stock market trading simulation tool and GUI using Java.",
-        "Features: creating a portfolio, buying/selling stock, downloading stock data, and analyzing stock performance.",
-        "Implemented use of Alpha Vantage stock data API."
+        "Built a stock market trading simulation tool and GUI using Java",
+        "Features: creating a portfolio, buying/selling stock, downloading stock data, and analyzing stock performance",
+        "Implemented use of Alpha Vantage stock data API"
       ],
       buttons: [
         { text: "Github", link: "https://github.com/Arsh-Jafri/stock-market-simulator" },
         { text: "Learn More", link: "https://github.com/Arsh-Jafri/stock-market-simulator#readme" }
       ]
-    },
-    {
-      id: 4,
-      title: "Sorting Algorithm Visualizer",
-      image: Project4,
-      tags: ["React", "CSS", "Animation"],
-      description: [
-        "Developed an interactive web application to visualize common sorting algorithms.",
-        "Implemented bubble sort, merge sort, quick sort, and selection sort with adjustable speed.",
-        "Built using React and CSS animations for smooth visualization."
-      ],
-      buttons: [
-        { text: "Github", link: "https://github.com/Arsh-Jafri/sorting-visualizer" },
-        { text: "Live Demo", link: "https://sorting-visualizer-arsh.netlify.app/" }
-      ],
-      hidden: true
-    },
-    {
-      id: 5,
-      title: "Weather Dashboard",
-      image: Project5,
-      tags: ["JavaScript", "API", "Weather"],
-      description: [
-        "Created a weather dashboard using OpenWeatherMap API and JavaScript.",
-        "Features: current weather, 5-day forecast, location search, and weather alerts.",
-        "Implemented geolocation for automatic local weather updates."
-      ],
-      buttons: [
-        { text: "Github", link: "https://github.com/Arsh-Jafri/weather-dashboard" },
-        { text: "Live Demo", link: "https://weather-dashboard-arsh.netlify.app/" }
-      ],
-      hidden: true
     }
   ];
 
@@ -151,21 +147,19 @@ const Projects: React.FC = () => {
     }
   };
 
-  const visibleProjects = projects.filter(project => !project.hidden || showHidden);
-
   return (
     <section id="projects">
       <p className="section__text__p1">Browse My Recent</p>
       <h1 className="title">Projects</h1>
       <div className="experience-details-container">
         <div className="about-containers">
-          {visibleProjects.map((project) => (
+          {projects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
         {window.innerWidth <= 600 && (
           <div className="scroll-indicator">
-            {visibleProjects.map((_, index) => (
+            {projects.map((_, index) => (
               <span
                 key={index}
                 className={`scroll-dot ${index === activeIndex ? 'active' : ''}`}
@@ -175,16 +169,6 @@ const Projects: React.FC = () => {
           </div>
         )}
       </div>
-      {window.innerWidth > 600 && (
-        <div className="show-more-container">
-          <button
-            className="btn btn-color-3 show-more-btn"
-            onClick={() => setShowHidden(!showHidden)}
-          >
-            {showHidden ? 'Show Less' : 'Show More'}
-          </button>
-        </div>
-      )}
     </section>
   );
 };
