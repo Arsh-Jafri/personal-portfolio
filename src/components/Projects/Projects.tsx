@@ -46,7 +46,7 @@ const Projects: React.FC = () => {
       image: EconostatsProject,
       tags: ["Python", "Flask", "HTML/CSS", "Data Visualization"],
       description: [
-        "A real-time economic data visualization platform. Features interactive charts, custom datas uploading, and FRED API integration."
+        "A real-time economic data visualization platform. Features interactive charts, custom data uploading, and FRED API integration."
       ],
       buttons: [
         { text: "GitHub", link: "https://github.com/Arsh-Jafri/econostats" },
