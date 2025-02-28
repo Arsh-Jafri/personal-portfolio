@@ -38,7 +38,7 @@ const Projects: React.FC = () => {
       ],
       buttons: [
         { text: "GitHub", link: "https://github.com/Arsh-Jafri/clearview" },
-        { text: "Download", link: "https://chromewebstore.google.com/detail/clearview-ai-powered-poli/eaaojgnnhjbcmggeepkpkemopfnjcpnb?hl=en&authuser=0" }
+        { text: "Install", link: "https://chromewebstore.google.com/detail/clearview-ai-powered-poli/eaaojgnnhjbcmggeepkpkemopfnjcpnb?hl=en&authuser=0" }
       ]
     },
     {
