@@ -113,7 +113,16 @@ const Projects: React.FC = () => {
       if (window.innerWidth <= 600) {
         const container = document.querySelector('#projects .about-containers');
         if (container) {
-          container.addEventListener('scroll', handleScroll);
+          let ticking = false;
+          container.addEventListener('scroll', () => {
+            if (!ticking) {
+              window.requestAnimationFrame(() => {
+                handleScroll();
+                ticking = false;
+              });
+              ticking = true;
+            }
+          });
         }
       }
     };

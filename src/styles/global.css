@@ -304,6 +304,62 @@ section:nth-child(4) {
   .desktop-nav {
     display: none;
   }
+
+  .project-card {
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.08);
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .project-card.fade-up {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .project-card.fade-up.animate {
+    opacity: 1;
+    transform: none !important;
+  }
+
+  /* Optimize other animations */
+  section.fade-up {
+    opacity: 1;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  section.fade-up.animate {
+    opacity: 1;
+    transform: none !important;
+  }
+
+  /* Optimize contact section */
+  #contact .details-container {
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.08);
+    transform: none !important;
+    transition: none !important;
+  }
+
+  #contact .details-container.fade-up {
+    opacity: 1;
+    transform: none !important;
+  }
+
+  #contact .details-container.fade-up.animate {
+    opacity: 1;
+    transform: none !important;
+  }
+
+  /* Disable hover effects on mobile */
+  #socials-container img:hover,
+  #contact .details-container:hover,
+  #contact article:hover,
+  .btn:hover {
+    transform: none !important;
+  }
 }
 
 #socials-container {
@@ -452,4 +508,9 @@ span, p, h1, h2, h3, h4, h5, h6 {
 #contact .details-container.fade-up.animate {
   opacity: 1;
   transform: translateY(0);
+}
+
+.about-containers {
+  will-change: transform;
+  -webkit-overflow-scrolling: touch;
 } 
