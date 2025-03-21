@@ -18,7 +18,7 @@ section, footer {
   background: rgba(22, 113, 255, 0.25);
   border-radius: 50%;
   filter: blur(80px);
-  animation: blobFloat 20s infinite ease-in-out, blobFadeIn 2s ease-out forwards;
+  animation: blobFadeIn 2s ease-out forwards;
   opacity: 0;
 }
 
@@ -148,18 +148,6 @@ footer ~ .section-blob-container .blob:nth-child(1) {
   animation-delay: 0.3s;
   background: rgba(22, 113, 255, 0.15);
   filter: blur(100px);
-}
-
-@keyframes blobFloat {
-  0% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.05);
-  }
-  100% {
-    transform: scale(1);
-  }
 }
 
 @keyframes blobFadeIn {
