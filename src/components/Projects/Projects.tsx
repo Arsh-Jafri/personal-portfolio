@@ -26,6 +26,7 @@ interface Project {
 
 const Projects: React.FC = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
 
   const projects: Project[] = [
     {
@@ -110,32 +111,47 @@ const Projects: React.FC = () => {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth <= 600) {
-        const container = document.querySelector('#projects .about-containers');
-        if (container) {
-          let ticking = false;
-          container.addEventListener('scroll', () => {
-            if (!ticking) {
-              window.requestAnimationFrame(() => {
-                handleScroll();
-                ticking = false;
-              });
-              ticking = true;
-            }
-          });
-        }
-      }
+      setIsMobile(window.innerWidth <= 768);
     };
 
     const handleScroll = () => {
       const container = document.querySelector('#projects .about-containers');
       if (container) {
-        const slideWidth = container.clientWidth;
+        const cards = container.querySelectorAll('.details-container');
+        const containerWidth = container.clientWidth;
         const scrollPosition = container.scrollLeft;
-        const index = Math.round(scrollPosition / slideWidth);
-        setActiveIndex(index);
+        
+        // Find which card is most visible
+        let maxVisibility = 0;
+        let mostVisibleIndex = 0;
+        
+        cards.forEach((card, index) => {
+          const cardBounds = card.getBoundingClientRect();
+          const containerBounds = container.getBoundingClientRect();
+          const visibility = Math.min(
+            Math.max(0,
+              Math.min(cardBounds.right, containerBounds.right) -
+              Math.max(cardBounds.left, containerBounds.left)
+            ),
+            cardBounds.width
+          );
+          
+          if (visibility > maxVisibility) {
+            maxVisibility = visibility;
+            mostVisibleIndex = index;
+          }
+        });
+
+        setActiveIndex(mostVisibleIndex);
       }
     };
+
+    if (isMobile) {
+      const container = document.querySelector('#projects .about-containers');
+      if (container) {
+        container.addEventListener('scroll', handleScroll);
+      }
+    }
 
     window.addEventListener('resize', handleResize);
     handleResize();
@@ -147,16 +163,19 @@ const Projects: React.FC = () => {
         container.removeEventListener('scroll', handleScroll);
       }
     };
-  }, []);
+  }, [isMobile]);
 
   const scrollToProject = (index: number) => {
     const container = document.querySelector('#projects .about-containers');
     if (container) {
-      const slideWidth = container.clientWidth;
-      container.scrollTo({
-        left: index * slideWidth,
-        behavior: 'smooth'
-      });
+      const cards = container.querySelectorAll('.details-container');
+      if (cards[index]) {
+        cards[index].scrollIntoView({
+          behavior: 'smooth',
+          block: 'nearest',
+          inline: 'center'
+        });
+      }
     }
   };
 
@@ -170,7 +189,7 @@ const Projects: React.FC = () => {
             <ProjectCard key={project.id} project={project} />
           ))}
         </div>
-        {window.innerWidth <= 600 && (
+        {isMobile && (
           <div className="scroll-indicator">
             {projects.map((_, index) => (
               <span

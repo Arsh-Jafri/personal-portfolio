@@ -128,4 +128,91 @@ article p {
   article p {
     font-size: 0.8rem;
   }
+}
+
+@media screen and (max-width: 768px) {
+  #experience {
+    width: 100%;
+    padding: 2rem 0;
+    margin: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .experience-details-container {
+    padding: 0;
+    width: 90%;
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .details-container {
+    min-width: unset;
+    width: 100%;
+    padding: 1.5rem;
+    margin: 0;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .article-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  article {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+  }
+
+  article div {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  article .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 0.25rem;
+    margin-top: 0.25rem;
+  }
+
+  article h3 {
+    font-size: 0.9rem;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  article p {
+    font-size: 0.8rem;
+    color: #D3D3D3;
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .experience-sub-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    width: 100%;
+    text-align: center;
+    padding: 0;
+  }
 } 

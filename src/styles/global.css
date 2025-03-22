@@ -36,7 +36,6 @@ section {
   position: relative;
   min-height: auto;
   padding: 2.8rem 0;
-  margin-bottom: 5rem;
   box-sizing: border-box;
   background: transparent;
 }
@@ -260,6 +259,113 @@ section:nth-child(4) {
   #profile {
     padding: 1rem;
     margin-bottom: 3.4rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  html, body {
+    width: 100%;
+    max-width: 100vw;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Ensure all container elements respect viewport boundaries */
+  .container, main, section, header, footer, div {
+    max-width: 100vw;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Profile section adjustments */
+  #profile {
+    padding: 2rem 0;
+    gap: 2rem;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  #profile .section__pic-container {
+    width: 260px;
+    height: 260px;
+    margin: 0 auto;
+  }
+
+  #profile .section__text {
+    text-align: center;
+    margin: 0 auto;
+    padding: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .section__text__p2,
+  .section__uni__name,
+  .btn-container,
+  #socials-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .typing-text {
+    font-size: 1.8rem;
+  }
+
+  .section__text__p2 {
+    font-size: 1rem;
+    margin: 0.5rem 0;
+  }
+
+  .section__uni__name {
+    font-size: 0.9rem;
+    margin: 0.5rem 0 1.5rem 0;
+  }
+
+  section {
+    padding: 2rem 0;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-container {
+    width: 100%;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .experience-details-container,
+  .about-details-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  .details-container {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  /* Ensure all headings are centered */
+  .title,
+  .subtitle,
+  .section__text__p1 {
+    width: 100%;
+    text-align: center;
+    padding: 0 1rem;
   }
 }
 
