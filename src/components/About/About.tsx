@@ -69,7 +69,7 @@ const About: React.FC = () => {
               applying my skills through <span className="text-emphasis">pro bono consulting, research roles, and leadership opportunities</span>. 
               <br /><br />
               Outside of work and academics, I love going to the <span className="text-emphasis">gym, graphic design, listening to Drake, and 
-                rewatching Modern Family</span>. Keep scrolling to learn more about my work and extracurriculars!
+                rewatching Modern Family</span>. Keep scrolling to learn more about my skills!
             </p>
           </div>
         </div>
