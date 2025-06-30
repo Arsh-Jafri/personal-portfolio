@@ -15,10 +15,11 @@ const Profile: React.FC = () => {
 
   useEffect(() => {
     const roles = [
+      "AI Engineer",
+      "Problem Solver",
       "Software Developer",
       "Full Stack Engineer",
-      "UI/UX Designer",
-      "Problem Solver"
+      "UI/UX Designer"
     ];
 
     let timer: ReturnType<typeof setTimeout>;
