@@ -19,18 +19,9 @@ const AppContent: React.FC = () => {
   // Initialize scroll animations
   useScrollAnimation();
 
-  useEffect(() => {
-    if (isImageLoaded) {
-      // Add a small delay to ensure smooth transition
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [isImageLoaded]);
 
   if (isLoading) {
-    return <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />;
+    return <LoadingScreen onLoadingComplete={() => setIsLoading(false)} isImageLoaded={isImageLoaded} />;
   }
 
   return (

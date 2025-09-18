@@ -4,9 +4,10 @@ import './LoadingScreen.css';
 
 interface LoadingScreenProps {
   onLoadingComplete: () => void;
+  isImageLoaded: boolean;
 }
 
-const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
+const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete, isImageLoaded }) => {
   const [progress, setProgress] = useState(0);
   const [isComplete, setIsComplete] = useState(false);
 
@@ -16,11 +17,6 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
       setProgress(prev => {
         if (prev >= 100) {
           clearInterval(interval);
-          setIsComplete(true);
-          // Wait a bit before calling onLoadingComplete to show 100%
-          setTimeout(() => {
-            onLoadingComplete();
-          }, 500);
           return 100;
         }
         return prev + Math.random() * 15; // Random increment for more realistic loading
@@ -28,7 +24,18 @@ const LoadingScreen: React.FC<LoadingScreenProps> = ({ onLoadingComplete }) => {
     }, 100);
 
     return () => clearInterval(interval);
-  }, [onLoadingComplete]);
+  }, []);
+
+  // Separate effect to handle completion when both progress is 100% and image is loaded
+  useEffect(() => {
+    if (progress >= 100 && isImageLoaded) {
+      setIsComplete(true);
+      // Wait a bit before calling onLoadingComplete to show 100%
+      setTimeout(() => {
+        onLoadingComplete();
+      }, 500);
+    }
+  }, [progress, isImageLoaded, onLoadingComplete]);
 
   return (
     <div className={`loading-screen ${isComplete ? 'fade-out' : ''}`}>
