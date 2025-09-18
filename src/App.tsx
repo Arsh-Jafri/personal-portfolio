@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import DesktopNav from './components/Navigation/DesktopNav';
 import Profile from './components/Profile/Profile';
 import Projects from './components/Projects/Projects';
@@ -6,32 +6,13 @@ import About from './components/About/About';
 import Experience from './components/Experience/Experience';
 import Contact from './components/Contact/Contact';
 import Footer from './components/Footer/Footer';
-import LoadingScreen from './components/LoadingScreen/LoadingScreen';
-import { LoadingProvider, useLoading } from './contexts/LoadingContext';
 import useScrollAnimation from './hooks/useScrollAnimation';
 import './styles/global.css';
 import './styles/components/blobs.css';
 
-const AppContent: React.FC = () => {
-  const [isLoading, setIsLoading] = useState(true);
-  const { isImageLoaded } = useLoading();
-  
+const App: React.FC = () => {
   // Initialize scroll animations
   useScrollAnimation();
-
-  useEffect(() => {
-    if (isImageLoaded) {
-      // Add a small delay to ensure smooth transition
-      const timer = setTimeout(() => {
-        setIsLoading(false);
-      }, 1000);
-      return () => clearTimeout(timer);
-    }
-  }, [isImageLoaded]);
-
-  if (isLoading) {
-    return <LoadingScreen onLoadingComplete={() => setIsLoading(false)} />;
-  }
 
   return (
     <div className="app">
@@ -81,14 +62,6 @@ const AppContent: React.FC = () => {
         <Footer />
       </div>
     </div>
-  );
-};
-
-const App: React.FC = () => {
-  return (
-    <LoadingProvider>
-      <AppContent />
-    </LoadingProvider>
   );
 };
 
