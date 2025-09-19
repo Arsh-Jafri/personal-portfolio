@@ -5,6 +5,7 @@ import {
   GithubIcon,
   Resume
 } from '../../assets';
+import { useLoading } from '../../contexts/LoadingContext';
 import '../../styles/components/profile.css';
 
 const Profile: React.FC = () => {
@@ -12,7 +13,7 @@ const Profile: React.FC = () => {
   const [isDeleting, setIsDeleting] = useState(true);
   const [roleIndex, setRoleIndex] = useState(0);
   const [typingSpeed, setTypingSpeed] = useState(70);
-  const [imageLoaded, setImageLoaded] = useState(false);
+  const { setImageLoaded } = useLoading();
 
   useEffect(() => {
     const roles = [
@@ -59,14 +60,9 @@ const Profile: React.FC = () => {
           alt="Portrait"
           loading="eager" 
           fetchPriority="high"
-          className={`profile-pic ${imageLoaded ? 'loaded' : 'loading'}`}
+          className="profile-pic"
           onLoad={() => setImageLoaded(true)}
         />
-        {!imageLoaded && (
-          <div className="profile-pic-placeholder">
-            <div className="loading-spinner"></div>
-          </div>
-        )}
       </div>
       <div className="section__text">
         <h1 className="title">👋 Hey, I'm Arsh Jafri</h1>
