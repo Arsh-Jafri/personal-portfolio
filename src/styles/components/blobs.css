@@ -15,7 +15,7 @@ section, footer {
 
 .blob {
   position: absolute;
-  background: rgba(22, 113, 255, 0.25);
+  background: #1671ff40;
   border-radius: 50%;
   filter: blur(80px);
   animation: blobFadeIn 2s ease-out forwards;
